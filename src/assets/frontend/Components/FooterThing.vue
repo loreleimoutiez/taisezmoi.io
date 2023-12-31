@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded fixed bottom-0">
         <nav class="grid grid-flow-col gap-4">
             <a class="link link-hover">Contact</a>
             <a class="link link-hover">Podcast</a>
@@ -12,7 +12,7 @@
             </div>
         </nav> 
         <aside>
-            <p>Copyright © {{ currentDate() }} - tous droits réservés</p>
+            <p>© {{ currentDate() }} - taisezmoi - Tous droits réservés</p>
         </aside>
     </footer>
 </template>
