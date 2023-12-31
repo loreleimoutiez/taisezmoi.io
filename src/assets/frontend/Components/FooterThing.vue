@@ -12,7 +12,7 @@
             </div>
         </nav> 
         <aside>
-            <p>Copyright © {{ currentDate() }} - tous droits réservés</p>
+            <p>© {{ currentDate() }} - taisezmoi - Tous droits réservés</p>
         </aside>
     </footer>
 </template>
