@@ -17,7 +17,7 @@
             </div>
             <div class="hidden sm:ml-6 sm:block">
               <div class="flex space-x-4">
-                <router-link v-for="item in navigation" :key="item.name" :to="{ name: item.name }" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
+                <router-link v-for="item in navigation" :key="item.name" :to="{ name: item.name }" :class="[($route.name === item.name) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
               </div>
             </div>
           </div>
@@ -28,7 +28,7 @@
   
       <DisclosurePanel class="sm:hidden">
         <div class="space-y-1 px-2 pb-3 pt-2">
-          <router-link v-for="item in navigation" :key="item.name" :to="{ name: item.name }" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block rounded-md px-3 py-2 text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
+          <router-link v-for="item in navigation" :key="item.name" :to="{ name: item.name }" :class="[($route.name === item.name) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block rounded-md px-3 py-2 text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
         </div>
       </DisclosurePanel>
     </Disclosure>
@@ -39,9 +39,9 @@
   import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
   
   const navigation = [
-    { name: 'Accueil', current: true },
-    { name: 'À propos', href: '#', current: false },
-    { name: 'Projets', href: '#', current: false },
-    { name: 'Blog', href: '#', current: false },
+    { name: 'Accueil' },
+    { name: 'À propos' },
+    { name: 'Projets' },
+    { name: 'Blog' },
   ]
   </script>
