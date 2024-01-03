@@ -12,10 +12,10 @@ import LayoutComp from '@/assets/frontend/Components/LayoutComp.vue'
                 <img class="w-32 rounded-full p-6 border-opacity-5 bg-base-100" src="@/assets/images/coin.png" alt="photo d'un canard en plastique jaune">
             </div>
             <p class="text-xs -mt-1 opacity-90">(Photo non contractuelle)</p>
-            <p class="text-5xl text-white my-4">Loreleï</p>
+            <p class="text-3xl text-white my-4">Loreleï</p>
             <div class="flex flex-col items-start mx-3 my-4">
                 <h1 class="text-base mt-1">Learning about #DataEngineer ing (and other things)</h1>
-                <p class="text-base mt-1 text-white font-bold">+ dev en alternance</p>
+                <p class="text-base mt-1 text-white font-bold">+ dev en alternance @                         <a href="https://www.akawaka.fr/" target="_blank" rel="noopener noreferrer" class="text-amber-500">Akawaka</a></p>
                 <p class="text-base mt-3">
                     <span class="md:hidden block">
                         <ul>
@@ -26,10 +26,7 @@ import LayoutComp from '@/assets/frontend/Components/LayoutComp.vue'
                                 <a href="https://openclassrooms.com/fr/" target="_blank" rel="noopener noreferrer" class="text-indigo-500 ml-2">'OpenClassrooms',</a>
                             </li>
                             <li>
-                                <a href="https://www.wildcodeschool.com/fr-fr/" target="_blank" rel="noopener noreferrer" class="text-pink-500 ml-2">'Wild Code School',</a>
-                            </li>
-                            <li>
-                                <a href="https://www.akawaka.fr/" target="_blank" rel="noopener noreferrer" class="text-amber-500 ml-2">'Akawaka' ]</a>
+                                <a href="https://www.wildcodeschool.com/fr-fr/" target="_blank" rel="noopener noreferrer" class="text-pink-500 ml-2">'Wild Code School']</a>
                             </li>
                         </ul>
                     </span>
@@ -37,7 +34,6 @@ import LayoutComp from '@/assets/frontend/Components/LayoutComp.vue'
                         <a href="https://www.codecademy.com/" target="_blank" rel="noopener noreferrer" class="text-yellow-100">Codecademy</a> / 
                         <a href="https://openclassrooms.com/fr/" target="_blank" rel="noopener noreferrer" class="text-indigo-500">OpenClassrooms</a> / 
                         <a href="https://www.wildcodeschool.com/fr-fr/" target="_blank" rel="noopener noreferrer" class="text-pink-500">Wild Code School</a> / 
-                        <a href="https://www.akawaka.fr/" target="_blank" rel="noopener noreferrer" class="text-amber-500">Akawaka</a>
                     </span>
                 </p>
             </div>
