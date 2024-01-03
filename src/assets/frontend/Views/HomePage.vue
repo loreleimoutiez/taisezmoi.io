@@ -1,14 +1,14 @@
 <template>
   <LayoutComp>
     <div class="bg-white py-14 md:py-24">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl md:max-w-full px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:text-center">
-          <h1 class="text-base font-semibold leading-7 text-success">Dev web en {{ currentWord }}</h1>
-          <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Mais pas seulement</p>
+          <h1 class="text-2xl font-semibold leading-7 text-success">Dev web en {{ currentWord }}</h1>
+          <p class="mt-2 text-xl font-bold tracking-tight text-gray-900">Mais pas seulement</p>
           <p class="mt-6 text-lg leading-8 text-gray-600">Je vous propose de découvrir ce qui m'anime (mis à part le café) et qui me donne envie de me lever le matin (mis à part mon chat qui miaule).</p>
         </div>
-        <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-          <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+        <div class="mx-auto mt-10 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-6xl">
+          <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-20 lg:gap-x-20">
             <div v-for="feature in features" :key="feature.name" class="relative pl-16">
               <dt class="text-base font-semibold leading-7 text-gray-900">
                 <div class="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-success">
@@ -22,23 +22,25 @@
         </div>
       </div>
     </div>
-    <div class="overflow-hidden bg-white py-14 sm:py-24">
+    <div class="overflow-hidden bg-gradient-to-b from-base-300 to-base-100 py-14 sm:py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
         <div class="lg:pr-8 lg:pt-4">
           <div class="lg:max-w-lg">
-            <h2 class="text-base font-semibold leading-7 text-success mb-2">En parlant d'histoire de l'informatique et de partage</h2>
-            <a href="https://smartlink.ausha.co/code-nautilus" target="_blank" rel="noopener noreferrer" class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Podcast<i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs text-gray-500"></i></a>
-            <p class="mt-6 mb-6 text-lg leading-8 text-gray-600">Bon ok il ne contient que deux épisodes (dont 1 vrai) mais j'en parle aussi pour me motiver à écrire les prochains épisodes.</p>
-            <p class="text-gray-500"><i class="fa-solid fa-quote-left text-success mr-2"></i>Bienvenue à bord de code Nautilus, le podcast qui vous emmène dans un voyage au cœur des profondeurs du développement web.<br><br>À bord de ce sous-marin, nous allons explorer les fonds océaniques de l'Histoire de la technologie, pour y découvrir des anecdotes et des faits passionnants sur l'évolution du web. Je vous guiderai à travers les différentes époques du développement web, les différentes thématiques de l'univers de la programmation et vous ferais découvrir des personnages qui ont changé à tout jamais ces domaines là.<br><br>Embarquez avec moi pour un voyage sous-marin passionnant à la découverte de l'Histoire et des histoires du développement web.<i class="fa-solid fa-quote-right ml-2 text-success"></i></p>
-            <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
+            <h2 class="text-base font-semibold leading-7 text-info mb-2">En parlant d'histoire de l'informatique et de partage</h2>
+            <a href="https://smartlink.ausha.co/code-nautilus" target="_blank" rel="noopener noreferrer" class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl text-white">Podcast<i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs text-gray-400"></i></a>
+            <p class="mt-6 mb-6 text-lg text-info">Bon, il ne contient que deux épisodes (dont un "vrai") mais j'en parle aussi pour me motiver à écrire les prochains épisodes.</p>
+            <p class="text-white"><i class="fa-solid fa-quote-left text-info mr-2"></i>Bienvenue à bord de code Nautilus, le podcast qui vous emmène dans un voyage au cœur des profondeurs du développement web.<br><br>À bord de ce sous-marin, nous allons explorer les fonds océaniques de l'Histoire de la technologie, pour y découvrir des anecdotes et des faits passionnants sur l'évolution du web. Je vous guiderai à travers les différentes époques du développement web, les différentes thématiques de l'univers de la programmation et vous ferais découvrir des personnages qui ont changé à tout jamais ces domaines là.<br><br>Embarquez avec moi pour un voyage sous-marin passionnant à la découverte de l'Histoire et des histoires du développement web.<i class="fa-solid fa-quote-right ml-2 text-info"></i></p>
+            <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 lg:max-w-none">
               <div v-for="episode in episodes" :key="episode.name" class="relative pl-9">
-                <dt class="inline font-semibold text-gray-900">
-                  <component :is="episode.icon" class="absolute left-1 top-1 h-5 w-5 text-success" aria-hidden="true" />
+                <dt class="inline font-semibold text-info">
+                  <component :is="episode.icon" class="absolute left-1 top-1 h-5 w-5 text-white" aria-hidden="true" />
                   {{ episode.name }}
                 </dt>
                 {{ ' ' }}
-                <dd class="inline">{{ episode.description }}</dd>
+                <div>
+                  <dd class="inline">{{ episode.description }}</dd>
+                </div>
               </div>
             </dl>
           </div>
