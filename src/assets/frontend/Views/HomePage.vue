@@ -38,14 +38,12 @@
                   {{ episode.name }}
                 </dt>
                 {{ ' ' }}
-                <div>
                   <dd class="inline">{{ episode.description }}</dd>
-                </div>
               </div>
             </dl>
           </div>
         </div>
-        <img src="@/assets/images/codenautilus.png" alt="Podcast screenshot" class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" width="2432" height="1442" />
+        <img src="@/assets/images/codenautilus.webp" alt="Podcast screenshot" class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" width="2432" height="1442" />
       </div>
     </div>
   </div>

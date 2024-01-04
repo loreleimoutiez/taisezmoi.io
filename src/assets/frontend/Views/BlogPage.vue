@@ -4,9 +4,9 @@
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl lg:max-w-4xl">
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Tous les articles</h2>
-            <p class="mt-2 text-lg leading-8 text-gray-600">Merci <span class="text-success font-bold">CATAAS</span>, j'emprunte des images et gifs de chats pendant que le site est en travaux !</p>
-            <p class="text-success mt-6">Vous voulez en savoir plus sur CATAAS ?</p>
-            <a href="https://cataas.com/" class="text-success underline">Allez jeter un oeil !</a>
+            <p class="mt-2 text-lg leading-8 text-gray-600">Merci <span class="text-black font-bold">CATAAS</span>, j'emprunte des images et gifs de chats pendant que le site est en travaux !</p>
+            <p class="text-black mt-6">Vous voulez en savoir plus sur CATAAS ?</p>
+            <a href="https://cataas.com/" class="text-black underline">Allez jeter un oeil !</a>
             <div class="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
                 <article v-for="post in posts" :key="post.id" class="relative isolate flex flex-col gap-8 lg:flex-row">
                 <div class="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
@@ -77,7 +77,7 @@
       description:
         'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta laboris incididunt.',
       imageUrl:
-        'https://cataas.com/cat/gif',
+        'https://cataas.com/cat',
       date: 'Mar 16, 2020',
       datetime: '2020-03-16',
       category: { title: 'Remarquable', href: '#' },
