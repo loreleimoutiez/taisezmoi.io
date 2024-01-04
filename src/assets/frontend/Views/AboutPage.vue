@@ -5,11 +5,11 @@ import LayoutComp from '@/assets/frontend/Components/LayoutComp.vue'
 <template>
     <LayoutComp>
         <div class="bg-gradient-to-b from-base-100 to-black">
-            <img class="w-full object-none md:object-cover md:h-64 opacity-50" src="@/assets/images/ordi.jpg" alt="photographie d'un écran d'ordinateur avec du code un peu flou">
+            <img class="w-full object-none md:object-cover md:h-64 opacity-50" src="@/assets/images/ordi.webp" alt="photographie d'un écran d'ordinateur avec du code un peu flou">
         </div>
         <div class="flex flex-col items-center ">
             <div class="-mt-20 z-10">
-                <img class="w-32 rounded-full p-6 border-opacity-5 bg-base-100" src="@/assets/images/coin.png" alt="photo d'un canard en plastique jaune">
+                <img class="w-32 rounded-full p-6 border-opacity-5 bg-base-100" src="@/assets/images/coin.webp" alt="photo d'un canard en plastique jaune">
             </div>
             <p class="text-xs -mt-1 opacity-90">(Photo non contractuelle)</p>
             <p class="text-3xl text-white my-4">Loreleï</p>

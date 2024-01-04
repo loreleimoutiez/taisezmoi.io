@@ -2,6 +2,7 @@
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import gzipPlugin from 'rollup-plugin-gzip';
 
 // Vite configuration
 export default defineConfig({
@@ -13,5 +14,12 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  build: {
+    rollupOptions: {
+      plugins: [
+        gzipPlugin(),
+      ],
+    },
+  },
 })
