@@ -29,15 +29,6 @@
                     </div>
                     <div class="mt-6 flex border-t border-gray-900/5 pt-6">
                     <div class="relative flex items-center gap-x-4">
-                        <div class="text-sm leading-6">
-                        <p class="font-semibold text-gray-900">
-                            <a :href="post.author.href">
-                            <span class="absolute inset-0" />
-                            {{ post.author.name }}
-                            </a>
-                        </p>
-                        <p class="text-gray-600">{{ post.author.role }}</p>
-                        </div>
                     </div>
                     </div>
                 </div>
@@ -55,7 +46,7 @@
   const posts = [
     {
       id: 1,
-      title: 'En voilà un bel exemple',
+      title: 'Titre',
       href: '#',
       description:
         'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta laboris incididunt.',
@@ -63,29 +54,12 @@
         'https://cataas.com/cat',
       date: 'Mar 16, 2020',
       datetime: '2020-03-16',
-      category: { title: 'Incroyable', href: '#' },
+      category: { title: 'Catégorie', href: '#' },
       author: {
         name: 'Loreleï',
         role: 'Développeuse web',
         href: '#',
       },
-    },
-    {
-      id: 2,
-      title: 'Non mais c\'est zinzin',
-      href: '#',
-      description:
-        'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta laboris incididunt.',
-      imageUrl:
-        'https://cataas.com/cat',
-      date: 'Mar 16, 2020',
-      datetime: '2020-03-16',
-      category: { title: 'Remarquable', href: '#' },
-      author: {
-        name: 'Loreleï',
-        role: 'Développeuse web',
-        href: '#',
-      },
-    },
+    }
   ]
   </script>

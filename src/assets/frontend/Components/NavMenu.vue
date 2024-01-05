@@ -19,7 +19,7 @@
               <div class="flex space-x-4">
                 <router-link v-for="item in navigation" :key="item.name" :to="{ name: item.name }" :class="[($route.name === item.name) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
                 <a href="#" class="sm:invisible md:visible text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-2 py-2 text-sm font-medium absolute md:right-44 lg:right-32 sm:right-5"><i class="fa-solid fa-rainbow mr-2 animate-pulse text-info"></i>Projet météo<i class="fa-solid fa-rainbow ml-2 animate-pulse text-info"></i></a>
-                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-2 py-2 text-sm font-medium absolute md:right-14 lg:right-3 sm:right-10">Se connecter</a>
+                <router-link to="/login" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-2 py-2 text-sm font-medium absolute md:right-14 lg:right-3 sm:right-10">Se connecter</router-link>
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@
           <div class="flex flex-col">
             <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projet météo</a>
             <span class="border-t border-green-200 mt-3 opacity-65"></span>
-            <a href="#" class="text-green-200 font-bold hover:bg-success hover:text-white block rounded-md px-3 mt-3 py-2 text-base">Se connecter</a>
+            <router-link to="/login" class="text-green-200 font-bold hover:bg-success hover:text-white block rounded-md px-3 mt-3 py-2 text-base">Se connecter</router-link>
           </div>
         </div>
       </DisclosurePanel>
@@ -49,6 +49,6 @@
     { name: 'Accueil' },
     { name: 'À propos' },
     { name: 'Projets' },
-    { name: 'Blog' },
+    { name: 'Blog' }
   ]
   </script>
