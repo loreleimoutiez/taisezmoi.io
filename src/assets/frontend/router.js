@@ -4,6 +4,7 @@ import HomePage from '@/assets/frontend/Views/HomePage.vue'
 import AboutPage from '@/assets/frontend/Views/AboutPage.vue'
 import ProjectsPage from '@/assets/frontend/Views/ProjectsPage.vue'
 import BlogPage from '@/assets/frontend/Views/BlogPage.vue'
+import LoginPage from '@/assets/frontend/Views/LoginPage.vue'
 import ErrorPage from '@/assets/frontend/Views/ErrorPage.vue'
 
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
       path: '/blog',
       name: 'Blog',
       component: BlogPage,
+    },
+    {
+      path: '/login',
+      name: 'Se connecter',
+      component: LoginPage,
     },
     {
       path: '/:pathMatch(.*)*',
