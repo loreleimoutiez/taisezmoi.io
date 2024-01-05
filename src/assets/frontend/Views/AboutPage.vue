@@ -14,7 +14,7 @@ import LayoutComp from '@/assets/frontend/Components/LayoutComp.vue'
             <p class="text-xs -mt-1 opacity-90">(Photo non contractuelle)</p>
             <p class="text-3xl text-white my-4">Loreleï</p>
             <div class="flex flex-col items-start mx-3 my-4">
-                <h1 class="text-base mt-1">Learning about #DataEngineer ing (and other things)</h1>
+                <h1 class="text-base mt-1">En train d'apprendre l'ingénierie des données, entre autres choses.</h1>
                 <p class="text-base mt-1 text-white font-bold">+ dev en alternance @                         <a href="https://www.akawaka.fr/" target="_blank" rel="noopener noreferrer" class="text-amber-500">Akawaka</a></p>
                 <p class="text-base mt-3">
                     <span class="md:hidden block">
