@@ -7,7 +7,7 @@ import LayoutComp from '@/assets/frontend/Components/LayoutComp.vue'
         <div class="bg-gradient-to-b from-base-100 to-black">
             <img class="w-full object-none md:object-cover md:h-64 opacity-50" src="@/assets/images/ordi.webp" alt="photographie d'un écran d'ordinateur avec du code un peu flou">
         </div>
-        <div class="flex flex-col items-center ">
+        <div class="flex flex-col items-center">
             <div class="-mt-20 z-10">
                 <img class="w-32 rounded-full p-6 border-opacity-5 bg-base-100" src="@/assets/images/coin.webp" alt="photo d'un canard en plastique jaune">
             </div>
@@ -38,7 +38,6 @@ import LayoutComp from '@/assets/frontend/Components/LayoutComp.vue'
                 </p>
             </div>
             <div class="flex flex-col items-start mx-3 my-20">
-                <p>Je crois qu'il me faut plus qu'une fin de journée après le travail pour écrire cette page.</p>
             </div>
         </div>
     </LayoutComp>
