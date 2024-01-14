@@ -1,7 +1,7 @@
 <template>
     <LayoutComp>
         <!--The whole page-->
-        <div class="flex md:mx-40 bg-neutral md:rounded-lg md:shadow-2xl md:my-10 max-w-full md:max-w-[80%] break-words min-h-screen">
+        <div class="flex md:mx-40 bg-neutral md:rounded-lg md:shadow-2xl md:my-10 md:max-w-[80%] break-words min-h-screen">
             <!--Left column-->
             <div class="hidden md:flex flex-col md:w-1/3 md:border-r md:border-gray-700 text-white pl-12 overflow-hidden break-words">
                 <i class="fa-solid fa-kiwi-bird text-3xl my-5"></i>
@@ -31,7 +31,7 @@
                         <p class="text-white text-lg md:text-xl ml-5">Loreleï 🦕</p>
                         <p class="text-sm text-gray-400 ml-5">@taisezmoi <span class="text-xs ml-1 bg-gray-700 py-0.5 px-1 rounded-md">Vous suit</span></p>
 
-                        <div class="my-5 text-sm w-full ml-5">
+                        <div class="my-5 text-sm ml-5">
                             <p>❤️ J'aime bien apprendre des choses</p>
                             <p>💻 Dev web en alternance chez <span class="text-white font-bold">Akawaka</span></p>
                             <p>💾 Floppy disks fan account !</p>
