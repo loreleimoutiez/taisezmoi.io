@@ -144,19 +144,19 @@ const recommendations = [
   {
     name: "Noether Tech' Blog",
     username: "@NoetherTechBlog",
-    profilePic: "@/assets/images/noether-pic.webp",
+    profilePic: "https://pbs.twimg.com/profile_images/1665452304122748931/Pkp9EA4R_400x400.jpg",
     link: "https://blog.noether.fr/"
   },
   {
     name: "akawaka",
     username: "@Akawakaweb",
-    profilePic: "@/assets/images/akawaka-pic.webp",
+    profilePic: "https://pbs.twimg.com/profile_images/1465716621381570571/rx1-X0Pz_400x400.png",
     link: "https://www.akawaka.fr/"
   },
   {
     name: "Cataas",
     username: "@apicataas",
-    profilePic: "@/assets/images/cataas-pic.webp",
+    profilePic: "https://pbs.twimg.com/profile_images/799598933303586816/Lb7L0tND_400x400.jpg",
     link: "https://cataas.com/"
   }
 ]
