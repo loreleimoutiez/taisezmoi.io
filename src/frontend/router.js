@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-import HomePage from '@/assets/frontend/Views/HomePage.vue'
-import AboutPage from '@/assets/frontend/Views/AboutPage.vue'
-import ProjectsPage from '@/assets/frontend/Views/ProjectsPage.vue'
-import BlogPage from '@/assets/frontend/Views/BlogPage.vue'
-import LoginPage from '@/assets/frontend/Views/LoginPage.vue'
-import ErrorPage from '@/assets/frontend/Views/ErrorPage.vue'
+import HomePage from '@/frontend/Views/HomePage.vue'
+import AboutPage from '@/frontend/Views/AboutPage.vue'
+import ProjectsPage from '@/frontend/Views/ProjectsPage.vue'
+import BlogPage from '@/frontend/Views/BlogPage.vue'
+import LoginPage from '@/frontend/Views/LoginPage.vue'
+import ErrorPage from '@/frontend/Views/ErrorPage.vue'
 
 const routes = [
     {

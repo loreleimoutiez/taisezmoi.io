@@ -41,7 +41,7 @@
   </template>
   
   <script setup>
-  import LayoutComp from '@/assets/frontend/Components/LayoutComp.vue'
+  import LayoutComp from '@/frontend/Components/LayoutComp.vue'
 
   const posts = [
     {

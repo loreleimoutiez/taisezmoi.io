@@ -53,7 +53,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { ShareIcon, CommandLineIcon, ArrowDownOnSquareIcon, SparklesIcon, ChevronDoubleRightIcon } from '@heroicons/vue/24/outline'
-import LayoutComp from '../Components/LayoutComp.vue'
+import LayoutComp from '@/frontend/Components/LayoutComp.vue'
 
 const alternateWords = ['apprentissage', 'reconversion']
 const currentWord = ref(alternateWords[0])

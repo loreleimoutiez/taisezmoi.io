@@ -94,8 +94,8 @@
 </template>
 
 <script setup>
-import LayoutComp from '@/assets/frontend/Components/LayoutComp.vue'
-import TweetComp from '@/assets/frontend/Components/TweetComp.vue'
+import LayoutComp from '@/frontend/Components/LayoutComp.vue'
+import TweetComp from '@/frontend/Components/TweetComp.vue'
 
 const titles = [
     {

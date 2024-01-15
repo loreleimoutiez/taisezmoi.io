@@ -13,7 +13,7 @@
           </div>
           <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start relative">
             <div class="flex flex-shrink-0 items-center">
-              <img class="h-8 w-auto" src="../../../assets/images/dino.webp" alt="logo petit dinosaure" />
+              <img class="h-8 w-auto" src="../../assets/images/dino.webp" alt="logo petit dinosaure" />
             </div>
             <div class="hidden sm:ml-6 sm:block">
               <div class="flex space-x-4">
