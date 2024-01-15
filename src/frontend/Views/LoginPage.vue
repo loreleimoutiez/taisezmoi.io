@@ -1,26 +1,4 @@
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
 <template>
-    <!--
-      This example requires updating your template:
-  
-      ```
-      <html class="h-full bg-gray-50">
-      <body class="h-full">
-      ```
-    -->
     <LayoutComp>
         <div class="flex min-h-full flex-1 flex-col justify-center px-6 lg:px-8 bg-gray-50 py-10 md:py-24">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
@@ -93,5 +71,5 @@
 </template>
 
 <script setup>
-  import LayoutComp from '@/assets/frontend/Components/LayoutComp.vue'
+  import LayoutComp from '@/frontend/Components/LayoutComp.vue'
 </script>
