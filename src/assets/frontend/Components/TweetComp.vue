@@ -35,7 +35,7 @@ const tweets = [
         content: "Tout ça c'était bien beau le temps que ça a duré (avant un burnout), mais je ne me voyais pas y faire mes vieux os (qui n'auraient pas tenu le coup)."
     },
     {
-        content: "C'est un peu par hasard et avec beaucoup de chance que j'ai donc décidé / commencé cette reconversion dans le dev web, en 2021."
+        content: "C'est un peu par hasard et avec beaucoup de chance que j'ai donc décidé / commencé cette reconversion dans le dev web, en 2022."
     },
 ]
 </script>
