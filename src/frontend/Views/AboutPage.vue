@@ -11,7 +11,7 @@
                         <span class="ml-5">{{ title.name }}</span>
                     </li>
                 </ol>
-                <span class="bg-info py-3 flex justify-center text-base font-bold rounded-3xl md:w-60">Poster</span>
+                <span class="bg-info py-3 -mt-12 -ml-5 flex justify-center text-base font-bold rounded-3xl md:w-60">Poster</span>
             </div>
 
             <!--Middle column-->
@@ -31,10 +31,12 @@
                         <p class="text-white text-lg md:text-xl ml-5">Loreleï 🦕</p>
                         <p class="text-sm text-gray-400 ml-5">@taisezmoi <span class="text-xs ml-1 bg-gray-700 py-0.5 px-1 rounded-md">Vous suit</span></p>
 
-                        <div class="my-5 text-sm ml-5">
+                        <div class="my-5 text-sm ml-5 text-white">
                             <p>❤️ J'aime bien apprendre des choses</p>
                             <p>💻 Dev web en alternance chez <span class="text-white font-bold">Akawaka</span></p>
                             <p>💾 Floppy disks fan account !</p>
+                            <p class="mt-4">🗒️ Plus d'infos ici : <a href="https://avocadogrowth.com/fr/blog/interview/interview-with-lorelei" target="_blank" rel="noopener noreferrer" class="text-info underline">Interview Avocado Growth</a></p>
+                            <p>🎧 Et ici : <a href="https://podcast.ausha.co/punkindev/s03e08-parcours-de-reconversion-entre-malchance-et-perseverance-avec-lorelei" target="_blank" rel="noopener noreferrer" class="text-info underline">Podcast PunkinDev</a></p>
                             <div class="mt-5 text-gray-400 flex items-center">
                                 <i class="fa-solid fa-location-dot mr-2"></i>
                                 <p>France</p>
@@ -60,7 +62,7 @@
 
             <!--Right column-->
             <div class="hidden md:flex md:flex-col text-white md:w-1/3 md:border-l md:border-gray-700 pt-11 overflow-hidden">
-                <span class="bg-accent m-5 p-5 rounded-2xl">
+                <span class="bg-accent mx-5 p-5 rounded-2xl">
                     <!--Recommandations ?-->
                     <p class="text-white text-lg font-bold mb-5">Vous pourriez aimer <i class="fa-solid fa-link text-gray-400 animate-pulse"></i></p>
                     <ol>
