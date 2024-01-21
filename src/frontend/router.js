@@ -4,6 +4,7 @@ import HomePage from '@/frontend/Views/HomePage.vue'
 import AboutPage from '@/frontend/Views/AboutPage.vue'
 import ProjectsPage from '@/frontend/Views/ProjectsPage.vue'
 import BlogPage from '@/frontend/Views/BlogPage.vue'
+import ContactPage from '@/frontend/Views/ContactPage.vue'
 import LoginPage from '@/frontend/Views/LoginPage.vue'
 import ErrorPage from '@/frontend/Views/ErrorPage.vue'
 
@@ -27,6 +28,11 @@ const routes = [
       path: '/blog',
       name: 'Blog',
       component: BlogPage,
+    },
+    {
+      path: '/contact',
+      name: 'Contact',
+      component: ContactPage,
     },
     {
       path: '/login',
