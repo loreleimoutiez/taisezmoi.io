@@ -7,6 +7,9 @@ import gzipPlugin from 'rollup-plugin-gzip';
 // Vite configuration
 export default defineConfig({
   base: '/',
+  server: {
+    historyApiFallback: true
+  },
   plugins: [
     vue(),
   ],
