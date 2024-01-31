@@ -2,6 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
+const cors = require('cors');
 require('dotenv').config();
 
 const userRoutes = require('./routes/user');
@@ -22,6 +23,10 @@ app.use(helmet({
 }));
 
 app.use(helmet.frameguard({ action: "SAMEORIGIN" }));
+
+app.use(cors({
+    origin: 'https://www.taisezmoi.com'
+}));
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
