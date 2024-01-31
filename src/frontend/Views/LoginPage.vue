@@ -84,7 +84,7 @@
 
   const handleSubmit = async () => {
   try {
-    const response = await fetch(`${import.meta.env.VUE_APP_BACKEND_URL}/api/auth/login`, {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
