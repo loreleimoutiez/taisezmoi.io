@@ -25,7 +25,7 @@ app.use(helmet({
 app.use(helmet.frameguard({ action: "SAMEORIGIN" }));
 
 app.use(cors({
-    origin: 'https://www.taisezmoi.com'
+    origin: ['https://www.taisezmoi.com', 'http://localhost:5173']
 }));
 
 app.use((req, res, next) => {

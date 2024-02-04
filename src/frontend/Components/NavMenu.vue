@@ -78,7 +78,12 @@
 
   const logout = () => {
     removeToken()
-    router.push('/')
+    isAuthenticated.value = false
+    if (router.currentRoute.value.name === 'Tableau de bord') {
+      router.push({ name: 'Accueil' });
+    } else {
+      router.push({ name: 'Se connecter' });
+    }
   }
 
   const navigation = [
