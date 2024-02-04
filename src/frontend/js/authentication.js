@@ -2,7 +2,7 @@ const API_PATH = '/api'
 const TOKEN_KEY = 'taisezmoi_token'
 
 export function getToken () {
-  const token = window.localStorage.getItem(TOKEN_KEY)
+  const token = window.localStorage.getItem(TOKEN_KEY);
 
   if (token) {
     return token
@@ -12,7 +12,7 @@ export function getToken () {
 }
 
 export function setToken(token) {
-  window.localStorage.setItem(TOKEN_KEY, JSON.stringify(token));
+  window.localStorage.setItem(TOKEN_KEY, token);
 }
 
 export function removeToken () {

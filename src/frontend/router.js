@@ -9,6 +9,8 @@ import BlogPage from '@/frontend/Views/BlogPage.vue'
 import ContactPage from '@/frontend/Views/ContactPage.vue'
 import LoginPage from '@/frontend/Views/LoginPage.vue'
 import DashboardPage from '@/frontend/Views/DashboardPage.vue'
+import WriteArticle from '@/frontend/Views/WriteArticle.vue'
+import MeteoProject from '@/frontend/Views/MeteoProject.vue'
 import ErrorPage from '@/frontend/Views/ErrorPage.vue'
 
 const routes = [
@@ -48,6 +50,16 @@ const routes = [
       component: DashboardPage,
     },
     {
+      path: '/write',
+      name: 'Écrire un article',
+      component: WriteArticle,
+    },
+    {
+      path: '/meteo',
+      name: 'Projet météo',
+      component: MeteoProject,
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: '404',
       component: ErrorPage,
@@ -66,6 +78,14 @@ router.beforeEach((to, from, next) => {
     next({ name: 'Se connecter' })
   } else {
     next();
+    return
+  }
+
+  if (to.name === 'Écrire un article' && !isAuthenticated) {
+    next({ name: 'Se connecter' })
+  } else {
+    next();
+    return
   }
 })
 

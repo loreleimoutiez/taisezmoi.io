@@ -18,7 +18,21 @@
             <div class="hidden sm:ml-6 sm:block">
               <div class="flex space-x-4">
                 <router-link v-for="item in navigation" :key="item.name" :to="{ name: item.name }" :class="[($route.name === item.name) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
-                <a href="#" class="sm:invisible md:visible text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-2 py-2 text-sm font-medium absolute md:right-44 lg:right-32 sm:right-5"><i class="fa-solid fa-rainbow mr-2 animate-pulse text-info"></i>Projet météo<i class="fa-solid fa-rainbow ml-2 animate-pulse text-info"></i></a>
+                <router-link
+                  v-if="isAuthenticated"
+                  to="/dashboard"
+                  class="text-gray-300 hover:bg-info hover:text-black rounded-md px-2 py-2 text-sm font-medium"
+                >
+                  Tableau de bord
+                </router-link>
+                <router-link
+                  v-if="isAuthenticated"
+                  to="/write"
+                  class="text-gray-300 hover:bg-info hover:text-black rounded-md px-2 py-2 text-sm font-medium"
+                >
+                  Écrire un article
+                </router-link>
+                <router-link v-if="isAuthenticated" to="/meteo" class="sm:invisible md:visible text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-2 py-2 text-sm font-medium absolute md:right-44 lg:right-32 sm:right-5"><i class="fa-solid fa-rainbow mr-2 animate-pulse text-info"></i>Projet météo<i class="fa-solid fa-rainbow ml-2 animate-pulse text-info"></i></router-link>
                 <router-link
                   v-if="isAuthenticated"
                   @click="logout"
@@ -43,8 +57,22 @@
       <DisclosurePanel class="sm:hidden">
         <div class="space-y-1 px-2 pb-3 pt-2">
           <router-link v-for="item in navigation" :key="item.name" :to="{ name: item.name }" :class="[($route.name === item.name) ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block rounded-md px-3 py-2 text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
+          <router-link
+                  v-if="isAuthenticated"
+                  to="/dashboard"
+                  class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                >
+                  Tableau de bord
+                </router-link>
+                <router-link
+                  v-if="isAuthenticated"
+                  to="/write"
+                  class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                >
+                  Écrire un article
+                </router-link>
           <div class="flex flex-col">
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projet météo</a>
+            <router-link v-if="isAuthenticated" to="/meteo" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projet météo</router-link>
             <span class="border-t border-green-200 mt-3 opacity-65"></span>
             <router-link
               v-if="isAuthenticated"

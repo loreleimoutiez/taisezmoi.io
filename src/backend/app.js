@@ -6,6 +6,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const userRoutes = require('./routes/user');
+const articleRoutes = require('./routes/article');
 
 mongoose.connect(process.env.MONGODB,
     {
@@ -36,6 +37,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/auth', userRoutes);
+app.use('/api/articles', articleRoutes);
 
 app.use((err, req, res, next) => {
     console.error(err);
