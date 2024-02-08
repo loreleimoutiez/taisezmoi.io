@@ -1,13 +1,11 @@
 <template>
     <LayoutComp>
-        <div class="py-12 bg-white">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 bg-white md:py-40 md:mb-60">
-                        <h1 class="-mt-4 text-xl md:text-3xl text-gray-600 mb-8 md:mb-20 font-bold">Tableau de bord</h1>
-                    </div>
-                </div>
+        <div class="bg-white py-10">
+          <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="mx-auto md:p-6 bg-white md:py-24">
+              <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-5">Tableau de bord</h2>
             </div>
+          </div>
         </div>
     </LayoutComp>
 </template>

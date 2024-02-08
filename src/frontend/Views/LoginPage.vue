@@ -1,12 +1,12 @@
 <template>
     <LayoutComp>
-        <div class="flex min-h-full flex-1 flex-col justify-center px-6 lg:px-8 bg-gray-50 py-10 md:py-24">
-        <div class="sm:mx-auto sm:w-full sm:max-w-md">
-            <h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Connexion</h2>
+      <div class="bg-white h-5/6 py-10 md:py-28">
+        <div class="py-4 md:py-16 px-4 mx-auto max-w-screen-md mb-3">
+          <h2 class="mb-4 text-2xl md:text-3xl tracking-tight font-extrabold text-center text-gray-900">Connexion</h2>
         </div>
-    
-        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-            <div class="bg-white px-6 py-12 md:shadow sm:rounded-lg sm:px-12">
+
+        <div class="mx-auto w-full max-w-[480px] md:mb-28">
+            <div class="bg-white py-10 md:shadow sm:rounded-lg px-6 md:px-12">
             <form class="space-y-6" @submit.prevent="handleSubmit" method="POST">
                 <div>
                 <p v-if="errorMessage" class="text-red-500 text-sm mb-4">{{ errorMessage }}</p>

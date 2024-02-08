@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer footer-center p-10 text-base-content rounded shrink-0 bg-gradient-to-b from-base-300 to-base-100">
+    <footer class="footer footer-center p-10 text-base-content rounded shrink-0 bg-gray-900">
         <nav class="grid grid-flow-col gap-4">
             <router-link to="/contact" class="link link-hover">Contact</router-link>
             <a class="link link-hover animate-pulse" href="https://smartlink.ausha.co/code-nautilus" target="_blank" rel="noopener noreferrer">Code Nautilus <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
