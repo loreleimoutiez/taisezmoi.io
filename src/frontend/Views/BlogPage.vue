@@ -39,18 +39,24 @@
   
   <script setup>
   import LayoutComp from '@/frontend/Components/LayoutComp.vue'
+  import { ref, onMounted } from 'vue'
 
-  const posts = [
-    {
-      id: 1,
-      title: 'Titre',
-      href: '#',
-      description:
-        'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta laboris incididunt.',
-      imageUrl:
-        'https://cataas.com/cat',
-      date: 'Mar 16, 2020',
-      datetime: '2020-03-16',
+  const posts = ref([])
+
+  onMounted(async () => {
+    await fetchPosts()
+  })
+
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/articles`)
+      if (!response.ok) {
+        throw new Error('Erreur lors de la récupération des articles')
+      }
+      const articles = await response.json()
+      posts.value = articles
+    } catch (error) {
+      console.error('Erreur :', error)
     }
-  ]
+  }
   </script>

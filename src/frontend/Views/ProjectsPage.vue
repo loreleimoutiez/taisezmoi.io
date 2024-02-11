@@ -4,8 +4,8 @@
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto md:p-6 md:py-24">
           <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-5">Projets</h2>
-          <p class="mt-2 md:text-lg leading-8 text-gray-600">Cette page regroupe des projets que j'aime bien.</p>
-          <p class="md:text-lg leading-8 text-gray-600">Tout est toujours sujet à l'amélioration (et si on attendait que quelque chose soit parfait pour le poster, on ne posterait jamais rien).</p>
+          <p class="mt-2 md:text-lg text-gray-600">Les projets que j'aime bien.</p>
+          <p class="md:text-lg text-gray-600">Tout est toujours sujet à l'amélioration (et si on attendait que quelque chose soit parfait pour le poster, on ne posterait jamais rien).</p>
         </div>
         <div class="mx-auto pt-10 md:p-6 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3 md:mb-40">
           <article v-for="post in posts" :key="post.id" class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 md:pt-80 pt-48 lg:pt-80">
@@ -42,7 +42,7 @@ import LayoutComp from '@/frontend/Components/LayoutComp.vue'
       description:
         'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
       imageUrl:
-        'https://cataas.com/cat',
+        'https://pbs.twimg.com/media/GF-2gLTWgAA8idY?format=jpg&name=large',
       date: 'Mar 16, 2020',
       datetime: '2020-03-16',
     },
