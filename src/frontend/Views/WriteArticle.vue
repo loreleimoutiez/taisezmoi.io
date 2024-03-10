@@ -23,8 +23,8 @@
                                 </textarea>
                             </div>
 
-                            <div class="flex p-1 text-gray-600">
-                                <button role="submit" class="md:w-32 flex w-full justify-center rounded-md bg-success px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-info focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" required>Confirmer</button>
+                            <div class="flex text-gray-600">
+                                <button role="submit" class="md:w-32 flex w-full justify-center rounded-md bg-success px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-info focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" required>Poster</button>
                             </div>
                         </form>
                     </div>

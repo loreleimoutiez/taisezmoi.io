@@ -32,6 +32,13 @@
                 >
                   Écrire un article
                 </router-link>
+                <router-link
+                  v-if="isAuthenticated"
+                  to="/create-card"
+                  class="text-gray-300 hover:bg-info hover:text-black rounded-md px-2 py-2 text-sm font-medium"
+                >
+                  Créer une carte
+                </router-link>
                 <router-link v-if="isAuthenticated" to="/meteo" class="sm:invisible md:visible text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-2 py-2 text-sm font-medium absolute md:right-44 lg:right-32 sm:right-5"><i class="fa-solid fa-rainbow mr-2 animate-pulse text-info"></i>Projet météo<i class="fa-solid fa-rainbow ml-2 animate-pulse text-info"></i></router-link>
                 <router-link
                   v-if="isAuthenticated"
@@ -70,6 +77,13 @@
                   class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                 >
                   Écrire un article
+                </router-link>
+                <router-link
+                  v-if="isAuthenticated"
+                  to="/create-card"
+                  class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                >
+                  Créer une carte
                 </router-link>
           <div class="flex flex-col">
             <router-link v-if="isAuthenticated" to="/meteo" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projet météo</router-link>
