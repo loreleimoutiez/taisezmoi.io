@@ -12,6 +12,8 @@ import DashboardPage from '@/frontend/Views/DashboardPage.vue'
 import WriteArticle from '@/frontend/Views/WriteArticle.vue'
 import MeteoProject from '@/frontend/Views/MeteoProject.vue'
 import ErrorPage from '@/frontend/Views/ErrorPage.vue'
+import TarotReading from '@/frontend/Views/TarotReading.vue'
+import CreateCard from './Views/CreateCard.vue'
 
 const routes = [
     {
@@ -45,6 +47,11 @@ const routes = [
       component: LoginPage,
     },
     {
+      path: '/tarot-reading',
+      name: 'Tarot Reading',
+      component: TarotReading
+    },
+    {
       path: '/dashboard',
       name: 'Tableau de bord',
       component: DashboardPage,
@@ -53,6 +60,11 @@ const routes = [
       path: '/write',
       name: 'Écrire un article',
       component: WriteArticle,
+    },
+    {
+      path: '/create-card',
+      name: 'Créer une carte',
+      component: CreateCard
     },
     {
       path: '/meteo',
@@ -71,7 +83,7 @@ const router = createRouter({
     routes
 })
 
-const authRequiredRoutes = ['Tableau de bord', 'Écrire un article', 'Projet météo']
+const authRequiredRoutes = ['Tableau de bord', 'Écrire un article', 'Créer une carte', 'Projet météo']
 
 router.beforeEach((to, from, next) => {
   const isAuthenticated = getToken();
