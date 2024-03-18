@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const cors = require('cors');
+const multer = require('multer');
 require('dotenv').config();
 
 const userRoutes = require('./routes/user');
@@ -19,6 +20,8 @@ mongoose.connect(process.env.MONGODB,
 
 const app = express();
 app.use(express.json());
+
+const upload = multer({ dest: 'images/' });
 
 app.use(helmet({
     crossOriginResourcePolicy: { policy: 'cross-origin' }
@@ -38,7 +41,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/auth', userRoutes);
-app.use('/api/articles', articleRoutes);
+app.use('/api/articles', upload.single('image'), articleRoutes);
 app.use('/api/cards', cardRoutes);
 
 app.use((err, req, res, next) => {

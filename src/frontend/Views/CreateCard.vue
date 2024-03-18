@@ -8,18 +8,18 @@
                         <form @submit.prevent="handleSubmit" method="POST">
                             <div class="mb-4">
                                 <label class="md:text-xl text-gray-600">Nom <span class="text-red-500">*</span></label>
-                                <input v-model="name" id="name" name="name" autocomplete="name" required="true" type="text" class="mt-5 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
+                                <input v-model="name" id="name" name="name" autocomplete="name" required type="text" class="mt-5 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                             </div>
 
                             <div class="mb-8">
                                 <label class="md:text-xl text-gray-600">Description <span class="text-red-500">*</span></label>
-                                <textarea v-model="description" id="description" name="description" autocomplete="description" required="true" type="text" class="mt-5 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full h-80 p-2.5">
+                                <textarea v-model="description" id="description" name="description" autocomplete="description" required type="text" class="mt-5 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full h-80 p-2.5">
                                 </textarea>
                             </div>
 
                             <div class="mb-4">
                                 <label for="image" class="md:text-xl text-gray-600">Image <span class="text-red-500">*</span></label>
-                                <input type="file" id="image" name="image" @change="handleFileUpload" required class="mt-5 block w-full text-sm text-gray-900 cursor-pointer focus:outline-none">
+                                <input @change="handleFileUpload" id="image" name="image" type="file" required class="mt-5 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                             </div>
 
                             <div class="flex text-gray-600 mt-10">
@@ -43,6 +43,10 @@ const description = ref('')
 const image = ref('')
 
 const token = getToken()
+
+const handleFileUpload = (e) => {
+  image.value = e.target
+}
 
 const handleSubmit = async () => {
   try {

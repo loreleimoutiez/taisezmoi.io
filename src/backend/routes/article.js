@@ -5,6 +5,6 @@ const auth = require('../middlewares/auth');
 const articleCtrl = require('../controllers/article');
 
 router.get('/', articleCtrl.getAllArticles);
-router.post('/', auth, articleCtrl.createArticle);
+router.post('/', auth, upload.single('image'), articleCtrl.createArticle);
 
 module.exports = router;

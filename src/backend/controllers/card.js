@@ -1,5 +1,5 @@
 /* eslint-disable */
-const Card = require("../models/Card");
+const Card = require("../models/card");
 const fs = require("fs");
 
 exports.getAllCards = (req, res, next) => {

@@ -5,7 +5,7 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="md:p-6 bg-white md:py-24">
                       <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-6 md:mb-10">Nouvel article</h1>
-                        <form @submit.prevent="handleSubmit" method="POST">
+                        <form @submit.prevent="handleSubmit" method="POST" enctype="multipart/form-data">
                             <div class="mb-4">
                                 <label class="md:text-xl text-gray-600">Titre <span class="text-red-500">*</span></label>
                                 <input v-model="title" id="title" name="title" autocomplete="title" required="true" type="text" class="mt-5 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
@@ -21,6 +21,11 @@
                                 <label class="md:text-xl text-gray-600">Contenu <span class="text-red-500">*</span></label>
                                 <textarea v-model="content" id="content" name="content" autocomplete="content" required="true" type="text" class="mt-5 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full h-60 p-2.5">
                                 </textarea>
+                            </div>
+
+                            <div class="mb-4">
+                              <label class="md:text-xl text-gray-600">Image <span class="text-red-500">*</span></label>
+                              <input v-on:change="image" id="image" name="image" type="file" required="true" class="mt-5 shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5">
                             </div>
 
                             <div class="flex text-gray-600">
@@ -42,22 +47,24 @@ import { getToken } from '@/frontend/js/authentication.js'
 const title = ref('')
 const content = ref('')
 const description = ref('')
+const image = ref(null)
 
 const token = getToken();
 
 const handleSubmit = async () => {
   try {
+    const formData = new FormData();
+    formData.append('title', title.value);
+    formData.append('content', content.value);
+    formData.append('description', description.value);
+    formData.append('image', image.value[0]);
+
     const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/articles`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
-      body: JSON.stringify({
-        title: title.value,
-        content: content.value,
-        description: description.value
-      }),
+      body: formData,
     });
 
     if (!response.ok) {
@@ -69,6 +76,7 @@ const handleSubmit = async () => {
     title.value = '';
     content.value = '';
     description.value = '';
+    image.value = null;
   } catch (error) {
     console.error('Erreur lors de la publication :', error);
   }
