@@ -1,9 +1,11 @@
 <template>
     <LayoutComp>
         <!--The whole page-->
-        <div class="flex md:mx-40 bg-neutral md:rounded-lg md:shadow-2xl md:my-10 md:max-w-[80%] break-words min-h-screen">
+        <div
+            class="flex md:mx-40 bg-neutral md:rounded-lg md:shadow-2xl md:my-10 md:max-w-[80%] break-words min-h-screen">
             <!--Left column-->
-            <div class="hidden md:flex flex-col md:w-1/3 md:border-r md:border-gray-700 text-white pl-12 overflow-hidden break-words">
+            <div
+                class="hidden md:flex flex-col md:w-1/3 md:border-r md:border-gray-700 text-white pl-12 overflow-hidden break-words">
                 <i class="fa-solid fa-kiwi-bird text-3xl my-5"></i>
                 <ol class="mb-14">
                     <li v-for="(title, index) in titles" :key="index" class="my-9 flex items-center text-xl">
@@ -11,7 +13,8 @@
                         <span class="ml-5">{{ title.name }}</span>
                     </li>
                 </ol>
-                <span class="bg-info py-3 -mt-12 -ml-5 flex justify-center text-base font-bold rounded-3xl md:w-60">Poster</span>
+                <span
+                    class="bg-info py-3 -mt-12 -ml-5 flex justify-center text-base font-bold rounded-3xl md:w-60">Poster</span>
             </div>
 
             <!--Middle column-->
@@ -25,18 +28,27 @@
                 </div>
 
                 <div class="border-b border-gray-700 relative">
-                    <img src="@/assets/images/bg-profile-pic.webp" alt="photo d'un paysage eneigé de campagne" class="mb-14 md:mb-16">
-                    <img src="@/assets/images/profile-pic.webp" alt="photo de profil, moi enfant" class="rounded-full absolute w-20 md:w-32 top-20 left-5 border-2 md:border-4 border-neutral">
+                    <img src="@/assets/images/bg-profile-pic.webp" alt="photo d'un paysage eneigé de campagne"
+                        class="mb-14 md:mb-16">
+                    <img src="@/assets/images/profile-pic.webp" alt="photo de profil, moi enfant"
+                        class="rounded-full absolute w-20 md:w-32 top-20 left-5 border-2 md:border-4 border-neutral">
                     <span class="w-full">
                         <p class="text-white text-lg md:text-xl ml-5">Loreleï 🦕</p>
-                        <p class="text-sm text-gray-400 ml-5">@taisezmoi <span class="text-xs ml-1 bg-gray-700 py-0.5 px-1 rounded-md">Vous suit</span></p>
+                        <p class="text-sm text-gray-400 ml-5">@taisezmoi <span
+                                class="text-xs ml-1 bg-gray-700 py-0.5 px-1 rounded-md">Vous suit</span></p>
 
                         <div class="my-5 text-sm ml-5 text-white">
                             <p>❤️ J'aime bien apprendre des choses</p>
                             <p>💻 Dev web en alternance chez <span class="text-white font-bold">Akawaka</span></p>
                             <p>💾 Floppy disks fan account !</p>
-                            <p class="mt-4">🗒️ Plus d'infos ici : <a href="https://avocadogrowth.com/fr/blog/interview/interview-with-lorelei" target="_blank" rel="noopener noreferrer" class="text-info underline">Interview Avocado Growth</a></p>
-                            <p>🎧 Et ici : <a href="https://podcast.ausha.co/punkindev/s03e08-parcours-de-reconversion-entre-malchance-et-perseverance-avec-lorelei" target="_blank" rel="noopener noreferrer" class="text-info underline">Podcast PunkinDev</a></p>
+                            <p class="mt-4">🗒️ Plus d'infos ici : <a
+                                    href="https://avocadogrowth.com/fr/blog/interview/interview-with-lorelei"
+                                    target="_blank" rel="noopener noreferrer" class="text-info underline">Interview
+                                    Avocado Growth</a></p>
+                            <p>🎧 Et ici : <a
+                                    href="https://podcast.ausha.co/punkindev/s03e08-parcours-de-reconversion-entre-malchance-et-perseverance-avec-lorelei"
+                                    target="_blank" rel="noopener noreferrer" class="text-info underline">Podcast
+                                    PunkinDev</a></p>
                             <div class="mt-5 text-gray-400 flex items-center">
                                 <i class="fa-solid fa-location-dot mr-2"></i>
                                 <p>France</p>
@@ -61,18 +73,22 @@
             </div>
 
             <!--Right column-->
-            <div class="hidden md:flex md:flex-col text-white md:w-1/3 md:border-l md:border-gray-700 pt-11 overflow-hidden">
+            <div
+                class="hidden md:flex md:flex-col text-white md:w-1/3 md:border-l md:border-gray-700 pt-11 overflow-hidden">
                 <span class="bg-accent mx-5 p-5 rounded-2xl">
                     <!--Recommandations ?-->
-                    <p class="text-white text-lg font-bold mb-5">Vous pourriez aimer <i class="fa-solid fa-link text-gray-400 animate-pulse"></i></p>
+                    <p class="text-white text-lg font-bold mb-5">Vous pourriez aimer <i
+                            class="fa-solid fa-link text-gray-400 animate-pulse"></i></p>
                     <ol>
                         <li v-for="(recommendation, index) in recommendations" :key="index" class="mt-5">
                             <a :href="recommendation.link" target="_blank" rel="noopener noreferrer" class="flex">
-                            <img :src="recommendation.profilePic" alt="photo de profil d'un compte" class="rounded-full w-12">
-                            <div class="flex flex-col ml-3 text-sm">
-                                <span class="font-bold">{{ recommendation.name }}<i class="fa-solid fa-arrow-up-right-from-square text-gray-400 ml-2 animate-pulse"></i></span>
-                                <p class="text-gray-400">{{ recommendation.username }}</p>
-                            </div>
+                                <img :src="recommendation.profilePic" alt="photo de profil d'un compte"
+                                    class="rounded-full w-12">
+                                <div class="flex flex-col ml-3 text-sm">
+                                    <span class="font-bold">{{ recommendation.name }}<i
+                                            class="fa-solid fa-arrow-up-right-from-square text-gray-400 ml-2 animate-pulse"></i></span>
+                                    <p class="text-gray-400">{{ recommendation.username }}</p>
+                                </div>
                             </a>
                         </li>
                     </ol>
@@ -143,24 +159,24 @@ const titles = [
 ]
 
 const recommendations = [
-  {
-    name: "Noether Tech' Blog",
-    username: "@NoetherTechBlog",
-    profilePic: "https://pbs.twimg.com/profile_images/1665452304122748931/Pkp9EA4R_400x400.jpg",
-    link: "https://blog.noether.fr/"
-  },
-  {
-    name: "akawaka",
-    username: "@Akawakaweb",
-    profilePic: "https://pbs.twimg.com/profile_images/1465716621381570571/rx1-X0Pz_400x400.png",
-    link: "https://www.akawaka.fr/"
-  },
-  {
-    name: "Cataas",
-    username: "@apicataas",
-    profilePic: "https://pbs.twimg.com/profile_images/799598933303586816/Lb7L0tND_400x400.jpg",
-    link: "https://cataas.com/"
-  }
+    {
+        name: "Noether Tech' Blog",
+        username: "@NoetherTechBlog",
+        profilePic: "https://pbs.twimg.com/profile_images/1665452304122748931/Pkp9EA4R_400x400.jpg",
+        link: "https://blog.noether.fr/"
+    },
+    {
+        name: "akawaka",
+        username: "@Akawakaweb",
+        profilePic: "https://pbs.twimg.com/profile_images/1465716621381570571/rx1-X0Pz_400x400.png",
+        link: "https://www.akawaka.fr/"
+    },
+    {
+        name: "Cataas",
+        username: "@apicataas",
+        profilePic: "https://pbs.twimg.com/profile_images/799598933303586816/Lb7L0tND_400x400.jpg",
+        link: "https://cataas.com/"
+    }
 ]
 
 const trends = [

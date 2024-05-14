@@ -7,6 +7,7 @@ exports.createArticle = async (req, res) => {
       title: req.body.title,
       content: req.body.content,
       description: req.body.description,
+      image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     });
     await article.save();
     res.status(201).json(article);

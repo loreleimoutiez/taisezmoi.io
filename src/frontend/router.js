@@ -8,82 +8,64 @@ import ProjectsPage from '@/frontend/Views/ProjectsPage.vue'
 import BlogPage from '@/frontend/Views/BlogPage.vue'
 import ContactPage from '@/frontend/Views/ContactPage.vue'
 import LoginPage from '@/frontend/Views/LoginPage.vue'
-import DashboardPage from '@/frontend/Views/DashboardPage.vue'
 import WriteArticle from '@/frontend/Views/WriteArticle.vue'
-import MeteoProject from '@/frontend/Views/MeteoProject.vue'
 import ErrorPage from '@/frontend/Views/ErrorPage.vue'
 import TarotReading from '@/frontend/Views/TarotReading.vue'
-import CreateCard from './Views/CreateCard.vue'
 
 const routes = [
-    {
-      path: '/',
-      name: 'Accueil',
-      component: HomePage,
-    },
-    {
-      path: '/about',
-      name: 'À propos',
-      component: AboutPage,
-    },
-    {
-      path: '/projects',
-      name: 'Projets',
-      component: ProjectsPage,
-    },
-    {
-      path: '/blog',
-      name: 'Blog',
-      component: BlogPage,
-    },
-    {
-      path: '/contact',
-      name: 'Contact',
-      component: ContactPage,
-    },
-    {
-      path: '/login',
-      name: 'Se connecter',
-      component: LoginPage,
-    },
-    {
-      path: '/tarot-reading',
-      name: 'Tarot Reading',
-      component: TarotReading
-    },
-    {
-      path: '/dashboard',
-      name: 'Tableau de bord',
-      component: DashboardPage,
-    },
-    {
-      path: '/write',
-      name: 'Écrire un article',
-      component: WriteArticle,
-    },
-    {
-      path: '/create-card',
-      name: 'Créer une carte',
-      component: CreateCard
-    },
-    {
-      path: '/meteo',
-      name: 'Projet météo',
-      component: MeteoProject,
-    },
-    {
-      path: '/:pathMatch(.*)*',
-      name: '404',
-      component: ErrorPage,
-    }
+  {
+    path: '/',
+    name: 'Accueil',
+    component: HomePage,
+  },
+  {
+    path: '/about',
+    name: 'À propos',
+    component: AboutPage,
+  },
+  {
+    path: '/projects',
+    name: 'Projets',
+    component: ProjectsPage,
+  },
+  {
+    path: '/blog',
+    name: 'Blog',
+    component: BlogPage,
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: ContactPage,
+  },
+  {
+    path: '/login',
+    name: 'Se connecter',
+    component: LoginPage,
+  },
+  {
+    path: '/tarot-reading',
+    name: 'Tarot Reading',
+    component: TarotReading
+  },
+  {
+    path: '/write',
+    name: 'Écrire un article',
+    component: WriteArticle,
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: '404',
+    component: ErrorPage,
+  }
 ]
 
 const router = createRouter({
-    history: createWebHashHistory('/'),
-    routes
+  history: createWebHashHistory('/'),
+  routes
 })
 
-const authRequiredRoutes = ['Tableau de bord', 'Écrire un article', 'Créer une carte', 'Projet météo']
+const authRequiredRoutes = ['Écrire un article']
 
 router.beforeEach((to, from, next) => {
   const isAuthenticated = getToken();
