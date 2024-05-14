@@ -44,11 +44,17 @@
                             <p class="mt-4">🗒️ Plus d'infos ici : <a
                                     href="https://avocadogrowth.com/fr/blog/interview/interview-with-lorelei"
                                     target="_blank" rel="noopener noreferrer" class="text-info underline">Interview
-                                    Avocado Growth</a></p>
+                                    Avocado Growth</a>
+                            </p>
                             <p>🎧 Et ici : <a
                                     href="https://podcast.ausha.co/punkindev/s03e08-parcours-de-reconversion-entre-malchance-et-perseverance-avec-lorelei"
                                     target="_blank" rel="noopener noreferrer" class="text-info underline">Podcast
-                                    PunkinDev</a></p>
+                                    PunkinDev</a>
+                            </p>
+                            <p class="mt-4">📺 Mon compte tiktok tech : <a
+                                    href="https://www.tiktok.com/@taisezmoitech"
+                                    target="_blank" rel="noopener noreferrer" class="text-info underline">taisezmoiTECH</a>
+                            </p>
                             <div class="mt-5 text-gray-400 flex items-center">
                                 <i class="fa-solid fa-location-dot mr-2"></i>
                                 <p>France</p>
