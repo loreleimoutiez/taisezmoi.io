@@ -1,7 +1,7 @@
 const API_PATH = '/api'
 const TOKEN_KEY = 'taisezmoi_token'
 
-export function getToken () {
+export function getToken() {
   const token = window.localStorage.getItem(TOKEN_KEY);
 
   if (token) {
@@ -15,11 +15,11 @@ export function setToken(token) {
   window.localStorage.setItem(TOKEN_KEY, token);
 }
 
-export function removeToken () {
+export function removeToken() {
   window.localStorage.removeItem(TOKEN_KEY);
 }
 
-function initLoginForm (form) {
+function initLoginForm(form) {
   form.addEventListener('submit', event => {
     event.preventDefault()
 
@@ -46,7 +46,7 @@ function initLoginForm (form) {
       .then(data => {
         const token = data.token;
         setToken(token);
-        window.location.href = '/dashboard';
+        window.location.href = '/write';
       })
   })
 }

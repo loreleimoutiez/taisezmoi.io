@@ -3,12 +3,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const cors = require('cors');
-const multer = require('multer');
 require('dotenv').config();
 
 const userRoutes = require('./routes/user');
 const articleRoutes = require('./routes/article');
-const cardRoutes = require('./routes/card');
 
 mongoose.connect(process.env.MONGODB,
     {
@@ -20,8 +18,6 @@ mongoose.connect(process.env.MONGODB,
 
 const app = express();
 app.use(express.json());
-
-const upload = multer({ dest: 'images/' });
 
 app.use(helmet({
     crossOriginResourcePolicy: { policy: 'cross-origin' }
@@ -41,17 +37,16 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/auth', userRoutes);
-app.use('/api/articles', upload.single('image'), articleRoutes);
-app.use('/api/cards', cardRoutes);
+app.use('/api/articles', articleRoutes);
 
 app.use((err, req, res, next) => {
     console.error(err);
-  
+
     if (err instanceof mongoose.Error.ValidationError) {
-      const validationErrors = Object.values(err.errors).map(error => error.message);
-      res.status(400).json({ error: validationErrors });
+        const validationErrors = Object.values(err.errors).map(error => error.message);
+        res.status(400).json({ error: validationErrors });
     } else {
-      res.status(500).json({ error: 'Une erreur est survenue' });
+        res.status(500).json({ error: 'Une erreur est survenue' });
     }
 });
 

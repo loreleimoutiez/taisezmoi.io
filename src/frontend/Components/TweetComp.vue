@@ -1,20 +1,22 @@
 <template>
-<ol>
-    <li v-for="(tweet, index) in tweets" :key="index">
-        <div class="flex items-center justify-between"> <!-- Ajoutez justify-between ici -->
-            <div class="flex items-center">
-                <img src="@/assets/images/profile-pic.webp" alt="photo de profil" class="rounded-full w-10 m-5">
-                <div class="-ml-2 md:-mt-3 text-sm flex flex-col md:flex-row">
-                    <span class="text-white font-bold">Loreleï 🦕</span>
-                    <span class="text-gray-400 font-normal">@taisezmoi · 2h</span>
+    <ol>
+        <li v-for="(tweet, index) in tweets" :key="index">
+            <div class="flex items-center justify-between"> <!-- Ajoutez justify-between ici -->
+                <div class="flex items-center">
+                    <img src="@/assets/images/profile-pic.webp" alt="photo de profil" class="rounded-full w-10 m-5">
+                    <div class="-ml-2 md:-mt-3 text-sm flex flex-col md:flex-row">
+                        <span class="text-white font-bold">Loreleï 🦕</span>
+                        <span class="text-gray-400 font-normal">@taisezmoi · 2h</span>
+                    </div>
                 </div>
+                <i class="fa-solid fa-ellipsis text-gray-400 pb-5 md:pb-2 pr-5"></i>
             </div>
-            <i class="fa-solid fa-ellipsis text-gray-400 pb-5 md:pb-2 pr-5"></i>
-        </div>
-        <p class="pl-2 ml-16 mr-5 -mt-3 md:-mt-7 max-w-full md:max-w-[80%] overflow-hidden break-words text-white text-sm">{{ tweet.content }}</p>
-        <div class="border-b border-gray-700 mt-5"></div>
-    </li>
-</ol>
+            <p
+                class="pl-2 ml-16 mr-5 -mt-3 md:-mt-7 max-w-full md:max-w-[80%] overflow-hidden break-words text-white text-sm">
+                {{ tweet.content }}</p>
+            <div class="border-b border-gray-700 mt-5"></div>
+        </li>
+    </ol>
 </template>
 
 <script setup>
