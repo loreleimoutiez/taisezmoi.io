@@ -11,6 +11,7 @@ import LoginPage from '@/frontend/Views/LoginPage.vue'
 import WriteArticle from '@/frontend/Views/WriteArticle.vue'
 import ErrorPage from '@/frontend/Views/ErrorPage.vue'
 import TarotReading from '@/frontend/Views/TarotReading.vue'
+import ArticlePage from '@/frontend/Views/ArticlePage.vue'
 
 const routes = [
   {
@@ -32,6 +33,12 @@ const routes = [
     path: '/blog',
     name: 'Blog',
     component: BlogPage,
+  },
+  {
+    path: '/article/:id',
+    name: 'Article',
+    component: ArticlePage,
+    props: true
   },
   {
     path: '/contact',
