@@ -32,16 +32,15 @@ onMounted(async () => {
 
 const fetchPost = async () => {
   try {
-    //const response = await fetch(`http://localhost:3000/api/articles/${route.params.id}`); // LOCAL
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/articles/${route.params.id}`); // PROD
+    //const response = await fetch(`http://localhost:3000/api/articles/${route.params.id}`) // LOCAL
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/articles/${route.params.id}`) // PROD
     if (!response.ok) {
-      throw new Error('Erreur lors de la récupération de l\'article');
+      throw new Error('Erreur lors de la récupération de l\'article')
     }
-    const data = await response.json();
-    console.log(data);
+    const data = await response.json()
     post.value = data;
   } catch (error) {
-    console.error('Erreur :', error);
+    console.error('Erreur :', error)
   }
 }
 </script>

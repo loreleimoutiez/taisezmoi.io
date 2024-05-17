@@ -112,8 +112,7 @@ const handleSubmit = async () => {
       throw new Error('Erreur de publication')
     }
 
-    const data = await response.json()
-    console.log('Article publié :', data)
+    console.log('Article publié')
     resetForm()
   } catch (error) {
     console.error('Erreur lors de la publication :', error)
