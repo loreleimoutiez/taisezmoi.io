@@ -1,16 +1,16 @@
 <template>
   <LayoutComp>
-    <div class="flex justify-center px-6 bg-success py-2.5 sm:px-3.5">
+    <div class="flex justify-center px-6 bg-fuchsia py-2.5 sm:px-3.5">
       <p class="text-sm leading-7 text-white md:text-base">
-        <a href="https://www.tiktok.com/@taisezmoitech" target="_blank" rel="noopener noreferrer">
-          <strong class="font-semibold animate-pulse">NOUVEAUTÉ MAI</strong><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>J'ai créé un Tiktok TECH <i class="fa-solid fa-arrow-pointer text-white ml-2"></i>
+        <a href="https://opentechcon.fr/" target="_blank" rel="noopener noreferrer">
+          <strong class="font-semibold animate-pulse">28 SEPTEMBRE 2024</strong><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>OpenTechCon <i class="fa-solid fa-arrow-pointer text-white ml-2"></i>
         </a>
       </p>
     </div>
     <div class="bg-white py-14 md:py-24">
       <div class="mx-auto max-w-7xl md:max-w-full px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:text-center">
-          <h1 class="text-2xl font-semibold leading-7 text-success">Dev web en {{ currentWord }}</h1>
+          <h1 class="text-2xl font-semibold leading-7 text-success">Développeuse web</h1>
           <p class="mt-2 text-xl font-bold tracking-tight text-gray-900">Mais pas seulement</p>
           <p class="mt-6 text-lg leading-8 text-gray-600">Je vous propose de découvrir ce qui m'anime (mis à part le
             café) et qui me donne envie de me lever le matin (mis à part mon chat qui miaule).</p>
@@ -41,8 +41,7 @@
               <a href="https://smartlink.ausha.co/code-nautilus" target="_blank" rel="noopener noreferrer"
                 class="mt-2 text-3xl font-bold tracking-tight sm:text-4xl text-white">Podcast<i
                   class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs text-gray-400"></i></a>
-              <p class="mt-6 mb-6 text-lg text-info">Bon, il ne contient que deux épisodes (dont un "vrai") mais j'en
-                parle aussi pour me motiver à écrire les prochains épisodes.</p>
+              <p class="mt-6 mb-6 text-lg text-info">Oui je sais il faut que je m'y remette...</p>
               <p class="text-white"><i class="fa-solid fa-quote-left text-info mr-2"></i>Bienvenue à bord de code
                 Nautilus, le podcast qui vous emmène dans un voyage au cœur des profondeurs du développement
                 web.<br><br>À bord de ce sous-marin, nous allons explorer les fonds océaniques de l'Histoire de la
@@ -74,26 +73,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
 import { ShareIcon, CommandLineIcon, ArrowDownOnSquareIcon, SparklesIcon, ChevronDoubleRightIcon } from '@heroicons/vue/24/outline'
 import LayoutComp from '@/frontend/Components/LayoutComp.vue'
-
-const alternateWords = ['apprentissage', 'reconversion']
-const currentWord = ref(alternateWords[0])
-
-onMounted(() => {
-  // Set up a simple interval to switch between words every 2 seconds
-  const intervalId = setInterval(() => {
-    const currentIndex = alternateWords.indexOf(currentWord.value)
-    const nextIndex = (currentIndex + 1) % alternateWords.length
-    currentWord.value = alternateWords[nextIndex]
-  }, 2000)
-
-  // Clear the interval when the component is unmounted
-  onUnmounted(() => {
-    clearInterval(intervalId)
-  })
-})
 
 const features = [
   {
