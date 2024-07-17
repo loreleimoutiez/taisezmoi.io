@@ -1,5 +1,4 @@
 <template>
-    <RibbonInfo />
     <div class="md:h-4/5">
         <TransitionRoot as="template" :show="sidebarOpen">
             <Dialog class="relative z-50 lg:hidden" @close="sidebarOpen = false">
@@ -186,7 +185,6 @@
 </template>
 
 <script setup>
-import RibbonInfo from '@/frontend/Components/RibbonInfo.vue'
 import { ref } from 'vue'
 import { useSound } from '@vueuse/sound'
 import buttonSfx from '../../assets/sounds/quack.wav'
@@ -209,7 +207,7 @@ const submitUrlAndPlaySound = async () => {
     play()
     if (urlInput.value) {
         try {
-            const response = await fetch('http://localhost:5001/api/load-url', {
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_QUACK_URL}/api/load-url`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -234,7 +232,7 @@ const askQuestion = async () => {
         })
 
         try {
-            const res = await fetch('http://localhost:5001/api/search', {
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_QUACK_URL}/api/search`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
