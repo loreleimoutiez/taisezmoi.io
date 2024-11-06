@@ -1,23 +1,84 @@
 <template>
   <LayoutComp>
+    <LatestNews />
     <div class="bg-white py-10">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="mx-auto md:p-6 bg-white md:py-24">
-          <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-5">Blog</h2>
-          <p class="mt-2 md:text-xl md:leading-8 text-gray-600">Tous les articles</p>
-          <div class="mt-6 md:mt-16 space-y-4 md:space-y-20 lg:mt-20">
-            <article v-for="post in posts" :key="post._id" class="relative isolate flex flex-col lg:flex-row">
-              <div>
-                <div class="group relative max-w-xl">
-                  <h3 class="text-lg md:text-2xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600 mt-5 md:mt-0">
-                    <router-link :to="`/article/${post._id}`" class="text-lg md:text-2xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600 mt-5 md:mt-0">
-                      <span class="absolute inset-0" />
-                      {{ post.title }}
-                    </router-link>
-                  </h3>
-                  <p class="mt-5 text-base leading-6 text-gray-600">{{ post.description }}</p>
-                </div>
+        
+        <!-- Titre principal Taiseznews -->
+        <h1 class="w-full text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tight text-gray-900 text-center mb-6">
+          taiseznews
+        </h1>
+        
+        <!-- Barre de catégories et de recherche -->
+        <nav class="flex flex-col md:flex-row md:justify-between items-center border-b-2 border-black pb-4 mb-8 border-t-4 border-t-gray-800 pt-4 space-y-4 md:space-y-0">
+          <div class="flex space-x-4 md:space-x-6 overflow-x-auto scrollbar-hide md:overflow-visible md:flex-wrap w-full">
+            <span 
+              v-for="cat in defaultCategories" 
+              :key="cat" 
+              @click="filterByCategory(cat)"
+              :class="{'text-fuchsia': selectedCategory === cat, 'text-black': selectedCategory !== cat}"
+              class="cursor-pointer whitespace-nowrap px-3 py-1 rounded-full hover:bg-gray-200"
+            >
+              {{ cat }}
+            </span>
+
+            <!-- Ajouter un bouton "Toutes les catégories" pour réinitialiser le filtre -->
+            <span 
+              @click="filterByCategory(null)"
+              :class="{'text-fuchsia': selectedCategory === null, 'text-black': selectedCategory !== null}"
+              class="cursor-pointer whitespace-nowrap px-3 py-1 rounded-full hover:bg-gray-200"
+            >
+              Toutes les catégories
+            </span>
+          </div>
+        </nav>
+
+        <div class="mt-6 mb-12 md:mt-16 lg:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Dernier article en grand format carré à gauche -->
+          <div v-if="filteredPosts.length" class="w-full relative">
+            <router-link :to="`/article/${filteredPosts[0]._id}`" class="block group">
+              <div class="relative">
+                <img
+                  v-if="filteredPosts[0].image"
+                  :src="filteredPosts[0].image"
+                  :alt="filteredPosts[0].alt || `Image de l'article : ${filteredPosts[0].title}`"
+                  class="w-full h-[30rem] object-cover rounded-lg"
+                />
+                <!-- Pastille de catégorie en bas à droite -->
+                <span class="absolute bottom-4 right-4 bg-fuchsia text-white text-xs font-semibold px-3 py-1 rounded-full">
+                  {{ filteredPosts[0].category }}
+                </span>
               </div>
+              <h3 class="mt-4 text-2xl font-semibold text-gray-900 group-hover:text-gray-600">
+                {{ filteredPosts[0].title }}
+              </h3>
+            </router-link>
+          </div>
+
+          <!-- Liste des autres articles en format plus petit à droite avec deux colonnes -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <article
+              v-for="post in filteredPosts.slice(1)"
+              :key="post._id"
+              class="relative isolate flex flex-col"
+            >
+              <router-link :to="`/article/${post._id}`" class="block group">
+                <div class="relative">
+                  <img
+                    v-if="post.image"
+                    :src="post.image"
+                    :alt="post.alt || `Image de l'article : ${post.title}`"
+                    class="w-full h-36 object-cover rounded-lg mb-2"
+                  />
+                  <!-- Pastille de catégorie en bas à droite -->
+                  <span class="absolute bottom-2 right-2 bg-fuchsia text-white text-xs font-semibold px-2 py-1 rounded-full">
+                    {{ post.category }}
+                  </span>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-gray-600">
+                  {{ post.title }}
+                </h3>
+              </router-link>
             </article>
           </div>
         </div>
@@ -28,9 +89,34 @@
 
 <script setup>
 import LayoutComp from '@/frontend/Components/LayoutComp.vue'
-import { ref, onMounted } from 'vue'
+import LatestNews from '@/frontend/Components/LatestNews.vue'
+import { ref, onMounted, computed } from 'vue'
 
 const posts = ref([])
+const selectedCategory = ref(null) // La catégorie sélectionnée
+
+const defaultCategories = [
+  'Développement',
+  'Data Engineering',
+  'Communauté',
+  'Hobbies',
+  'Vie Quotidienne',
+  'Cuisine',
+  'Divers'
+]
+
+// Fonction pour filtrer les posts en fonction de la catégorie sélectionnée
+const filteredPosts = computed(() => {
+  if (selectedCategory.value) {
+    return posts.value.filter(post => post.category === selectedCategory.value)
+  }
+  return posts.value
+})
+
+// Fonction pour définir la catégorie sélectionnée
+const filterByCategory = (category) => {
+  selectedCategory.value = category
+}
 
 onMounted(async () => {
   await fetchPosts()
@@ -40,12 +126,12 @@ const fetchPosts = async () => {
   try {
     const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/articles`)
     if (!response.ok) {
-      throw new Error('Erreur lors de la récupération des articles')
+      throw new Error("Erreur lors de la récupération des articles")
     }
-    const articles = await response.json()
-    posts.value = articles
+    let articles = await response.json()
+    posts.value = articles.reverse() // Inverse l'ordre pour afficher les plus récents en premier
   } catch (error) {
-    console.error('Erreur :', error)
+    console.error("Erreur :", error)
   }
 }
 </script>
