@@ -1,12 +1,6 @@
 <template>
   <LayoutComp>
-    <div class="flex justify-center px-6 bg-fuchsia py-2.5 sm:px-3.5">
-      <p class="text-sm leading-7 text-white md:text-base">
-        <a href="https://opentechcon.fr/" target="_blank" rel="noopener noreferrer">
-          <strong class="font-semibold animate-pulse">28 SEPTEMBRE 2024</strong><svg viewBox="0 0 2 2" class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true"><circle cx="1" cy="1" r="1" /></svg>OpenTechCon <i class="fa-solid fa-arrow-pointer text-white ml-2"></i>
-        </a>
-      </p>
-    </div>
+    <LatestNews />
     <div class="bg-white py-14 md:py-24">
       <div class="mx-auto max-w-7xl md:max-w-full px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:text-center">
@@ -75,6 +69,7 @@
 <script setup>
 import { ShareIcon, CommandLineIcon, ArrowDownOnSquareIcon, SparklesIcon, ChevronDoubleRightIcon } from '@heroicons/vue/24/outline'
 import LayoutComp from '@/frontend/Components/LayoutComp.vue'
+import LatestNews from '@/frontend/Components/LatestNews.vue'
 
 const features = [
   {

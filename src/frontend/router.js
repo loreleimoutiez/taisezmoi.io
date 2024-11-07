@@ -62,6 +62,12 @@ const routes = [
     component: WriteArticle,
   },
   {
+    path: '/edit/:id',
+    name: 'Modifier un article',
+    component: WriteArticle,
+    props: true,
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: '404',
     component: ErrorPage,
