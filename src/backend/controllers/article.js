@@ -1,5 +1,7 @@
 /* eslint-disable */
 const Article = require('../models/article');
+const fs = require('fs');
+const path = require('path');
 
 exports.createArticle = async (req, res) => {
   const { title, content, alt, category } = req.body;
@@ -46,29 +48,52 @@ exports.getArticleById = (req, res) => {
 };
 
 exports.updateArticle = async (req, res) => {
-  const { title, content, alt, category } = req.body
-  const updateData = { title, content, alt, category }
-  if (req.file) {
-    updateData.image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
-  }
+  const { title, content, alt, category } = req.body;
+  const updateData = { title, content, alt, category };
+
   try {
-    const updatedArticle = await Article.findByIdAndUpdate(req.params.id, updateData, { new: true })
-    if (!updatedArticle) {
-      return res.status(404).json({ error: 'Article not found' })
+    const article = await Article.findById(req.params.id);
+    if (!article) {
+      return res.status(404).json({ error: 'Article not found' });
     }
-    res.status(200).json(updatedArticle)
+
+    if (req.file) {
+      const oldImagePath = path.join('/var/data/images', path.basename(article.image));
+
+      fs.unlink(oldImagePath, (err) => {
+        if (err) {
+          console.error('Erreur lors de la suppression de l\'ancienne image:', err);
+        }
+      });
+
+      updateData.image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
+    }
+
+    const updatedArticle = await Article.findByIdAndUpdate(req.params.id, updateData, { new: true });
+    res.status(200).json(updatedArticle);
   } catch (error) {
-    res.status(500).json({ error: error.message })
+    res.status(500).json({ error: error.message });
   }
-}
+};
 
 exports.deleteArticle = (req, res) => {
-  Article.findByIdAndDelete(req.params.id)
+  Article.findById(req.params.id)
     .then((article) => {
       if (!article) {
         return res.status(404).json({ error: 'Article not found' });
       }
-      res.status(200).json({ message: 'Article deleted successfully' });
+
+      const imagePath = path.join('/var/data/images', path.basename(article.image));
+      fs.unlink(imagePath, (err) => {
+        if (err) {
+          console.error('Erreur lors de la suppression du fichier image:', err);
+          return res.status(500).json({ error: 'Erreur lors de la suppression du fichier image' });
+        }
+
+        Article.findByIdAndDelete(req.params.id)
+          .then(() => res.status(200).json({ message: 'Article et image supprimés avec succès' }))
+          .catch((error) => res.status(500).json({ error: error.message }));
+      });
     })
     .catch((error) => res.status(500).json({ error: error.message }));
 };
