@@ -37,13 +37,7 @@ exports.login = (req, res, next) => {
 
                     const token = jwt.sign({ userId: user._id }, process.env.AUTH_TOKEN, { expiresIn: "24h" });
 
-                    res.cookie("auth_token", token, {
-                        httpOnly: true,
-                        // En prod, cette ligne sera active
-                        secure: true,
-                        sameSite: "None",
-                        maxAge: 24 * 60 * 60 * 1000 // 24 heures
-                    });
+                    res.setHeader('Set-Cookie', `auth_token=${token}; HttpOnly; SameSite=None; Secure; Path=/; Partitioned`);
 
                     res.status(200).json({ message: "Connexion réussie !" });
                 })
@@ -54,11 +48,7 @@ exports.login = (req, res, next) => {
 
 // LOGOUT
 exports.logout = (req, res) => {
-    res.cookie('auth_token', '', {
-        httpOnly: true,
-        sameSite: 'None',
-        expires: new Date(0)
-    });
+    res.setHeader('Set-Cookie', 'auth_token=; Expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; HttpOnly; SameSite=None; Secure; Path=/; Partitioned');
     res.status(200).json({ message: "Déconnecté avec succès" });
 };
 
