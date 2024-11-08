@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGODB,
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/images', express.static('/var/data/images'));
 
 app.use(helmet({
     crossOriginResourcePolicy: { policy: 'cross-origin' }
