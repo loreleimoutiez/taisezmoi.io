@@ -55,54 +55,50 @@ import LayoutComp from '../Components/LayoutComp.vue'
 import Breadcrumb from '../Components/BreadCrumb.vue'
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { getToken } from '@/frontend/js/authentication.js'
+import { checkAuthStatus } from '@/frontend/js/authentication.js'
 
 const route = useRoute()
 const router = useRouter()
 const post = ref(null)
-const isAuthenticated = ref(!!getToken())
+const isAuthenticated = ref(false)
 
 onMounted(async () => {
+  isAuthenticated.value = await checkAuthStatus();
   await fetchPost()
 })
 
 const fetchPost = async () => {
   try {
-    //const response = await fetch(`http://localhost:3000/api/articles/${route.params.id}`) // LOCAL
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/articles/${route.params.id}`) // PROD
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/articles/${route.params.id}`);
     if (!response.ok) {
-      throw new Error('Erreur lors de la récupération de l\'article')
+      throw new Error('Erreur lors de la récupération de l\'article');
     }
-    const data = await response.json()
-    post.value = data
+    const data = await response.json();
+    post.value = data;
   } catch (error) {
-    console.error('Erreur :', error)
+    console.error('Erreur :', error);
   }
 }
 
 const editPost = () => {
-  router.push({ name: 'Modifier un article', params: { id: post.value._id } })
+  router.push({ name: 'Modifier un article', params: { id: post.value._id } });
 }
 
 const deletePost = async () => {
   try {
-    const token = getToken()
     const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/articles/${route.params.id}`, {
-    //const response = await fetch(`http://localhost:3000/api/articles/${route.params.id}`, {
       method: 'DELETE',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
-    })
-    
-    const result = await response.json()
-    console.log(result)
+      credentials: 'include',
+    });
 
-    if (!response.ok) throw new Error('Erreur lors de la suppression')
+    if (!response.ok) throw new Error('Erreur lors de la suppression');
     
-    router.push({ name: 'Blog' })
+    const result = await response.json();
+    console.log(result);
+
+    router.push({ name: 'Blog' });
   } catch (error) {
-    console.error('Erreur lors de la suppression de l\'article:', error)
+    console.error('Erreur lors de la suppression de l\'article:', error);
   }
 }
 

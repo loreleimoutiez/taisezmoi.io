@@ -4,41 +4,33 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 const cors = require('cors');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 
 require('dotenv').config();
 
 const userRoutes = require('./routes/user');
 const articleRoutes = require('./routes/article');
 
-mongoose.connect(process.env.MONGODB,
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    })
+mongoose.connect(process.env.MONGODB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
     .then(() => console.log('Connexion à MongoDB réussie !'))
     .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 const app = express();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/images', express.static('/var/data/images'));
+app.use(cookieParser());
 
-app.use(helmet({
-    crossOriginResourcePolicy: { policy: 'cross-origin' }
-}));
-
-app.use(helmet.frameguard({ action: "SAMEORIGIN" }));
+app.use(helmet());
 
 app.use(cors({
-    origin: ['https://www.taisezmoi.com', 'http://localhost:5173']
+    origin: ['https://www.taisezmoi.com', 'http://localhost:5173'],
+    credentials: true
 }));
-
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-    next();
-});
 
 app.use('/api/auth', userRoutes);
 app.use('/api/articles', articleRoutes);

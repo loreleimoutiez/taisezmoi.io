@@ -53,7 +53,6 @@
 import LayoutComp from '@/frontend/Components/LayoutComp.vue'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { setToken } from '@/frontend/js/authentication.js'
 
 const router = useRouter()
 const email = ref('')
@@ -73,13 +72,12 @@ const handleSubmit = async () => {
         email: email.value,
         password: password.value,
       }),
+      credentials: 'include'
     });
 
     if (!response.ok) {
       throw new Error('Erreur de connexion')
     }
-    const data = await response.json();
-    setToken(data.token);
 
     router.push({ name: 'Écrire un article' })
   } catch (error) {
@@ -87,5 +85,4 @@ const handleSubmit = async () => {
     errorMessage.value = 'Informations de connexion incorrectes, veuillez réessayer.'
   }
 };
-
 </script>

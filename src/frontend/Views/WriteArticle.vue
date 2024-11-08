@@ -54,7 +54,6 @@
 <script setup>
 import LayoutComp from '../Components/LayoutComp.vue'
 import { ref, nextTick, onMounted } from 'vue'
-import { getToken } from '@/frontend/js/authentication.js'
 import { useRoute } from 'vue-router'
 import Quill from 'quill'
 
@@ -65,26 +64,27 @@ const imageAlt = ref('')
 const category = ref('')
 const isEditing = ref(false)
 const route = useRoute()
-const token = getToken()
 
 // Charger l'article existant pour édition
 const loadArticle = async (id) => {
-  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/articles/${id}`)
-  const data = await response.json()
-  title.value = data.title
-  content.value = data.content
-  imageAlt.value = data.alt
-  category.value = data.category
-  imageUrl.value = data.image // URL de l'image existante
+  const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/articles/${id}`, {
+    credentials: 'include' // Inclut les cookies pour l'authentification
+  });
+  const data = await response.json();
+  title.value = data.title;
+  content.value = data.content;
+  imageAlt.value = data.alt;
+  category.value = data.category;
+  imageUrl.value = data.image; // URL de l'image existante
 }
 
 // Vérifiez si on est en mode édition et initialisez Quill
 onMounted(async () => {
   if (route.params.id) {
-    isEditing.value = true
-    await loadArticle(route.params.id)
+    isEditing.value = true;
+    await loadArticle(route.params.id);
   }
-  initializeQuill()
+  initializeQuill();
 })
 
 const defaultCategories = [
@@ -97,9 +97,9 @@ const defaultCategories = [
   'Divers'
 ]
 
-let quill
+let quill;
 const initializeQuill = async () => {
-  await nextTick() // Assure que l'éditeur est dans le DOM
+  await nextTick(); // Assure que l'éditeur est dans le DOM
   quill = new Quill('#editor', {
     modules: {
       toolbar: [
@@ -110,71 +110,69 @@ const initializeQuill = async () => {
       ],
     },
     theme: 'snow',
-  })
-  quill.root.innerHTML = content.value // Remplir Quill avec le contenu lors de l'édition
+  });
+  quill.root.innerHTML = content.value; // Remplir Quill avec le contenu lors de l'édition
 
   quill.on('text-change', () => {
-    content.value = quill.root.innerHTML
-  })
+    content.value = quill.root.innerHTML;
+  });
 }
 
 const resetForm = () => {
-  title.value = ''
-  category.value = ''
-  imageAlt.value = ''
-  imageUrl.value = null
+  title.value = '';
+  category.value = '';
+  imageAlt.value = '';
+  imageUrl.value = null;
   if (quill) {
-    quill.setContents([])
+    quill.setContents([]);
   }
 }
 
 const handleImageUpload = (event) => {
-  const file = event.target.files[0]
+  const file = event.target.files[0];
   if (file) {
-    imageUrl.value = file
+    imageUrl.value = file;
   }
 }
 
 const handleSubmit = async () => {
   try {
     if (!title.value || !content.value || !imageAlt.value || !category.value) {
-      throw new Error('Tous les champs sont obligatoires')
+      throw new Error('Tous les champs sont obligatoires');
     }
 
-    const formData = new FormData()
-    formData.append('title', title.value)
-    formData.append('content', content.value)
-    formData.append('alt', imageAlt.value)
-    formData.append('category', category.value)
+    const formData = new FormData();
+    formData.append('title', title.value);
+    formData.append('content', content.value);
+    formData.append('alt', imageAlt.value);
+    formData.append('category', category.value);
     
     // Ajoute une nouvelle image seulement si on en sélectionne une
     if (imageUrl.value instanceof File) {
-      formData.append('image', imageUrl.value)
+      formData.append('image', imageUrl.value);
     }
 
     // Définit la méthode et l'URL en fonction de `isEditing`
-    const method = isEditing.value ? 'PUT' : 'POST'
+    const method = isEditing.value ? 'PUT' : 'POST';
     const url = isEditing.value
       ? `${import.meta.env.VITE_BACKEND_URL}/api/articles/${route.params.id}`
-      : `${import.meta.env.VITE_BACKEND_URL}/api/articles`
+      : `${import.meta.env.VITE_BACKEND_URL}/api/articles`;
 
     const response = await fetch(url, {
       method,
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
+      credentials: 'include', // Inclut les cookies pour l'authentification
       body: formData,
-    })
+    });
 
     if (!response.ok) {
-      const errorData = await response.json()
-      throw new Error(errorData.error || 'Erreur lors de l\'enregistrement')
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Erreur lors de l\'enregistrement');
     }
 
-    console.log(isEditing.value ? 'Article mis à jour' : 'Article publié')
-    resetForm()
+    console.log(isEditing.value ? 'Article mis à jour' : 'Article publié');
+    resetForm();
   } catch (error) {
-    console.error('Erreur lors de l\'enregistrement de l\'article:', error)
+    console.error('Erreur lors de l\'enregistrement de l\'article:', error);
   }
 }
 </script>
