@@ -40,7 +40,7 @@ exports.login = (req, res, next) => {
                     res.cookie("auth_token", token, {
                         httpOnly: true,
                         // En prod, cette ligne sera active
-                        //secure: process.env.NODE_ENV === "production",
+                        secure: process.env.NODE_ENV === "production",
                         sameSite: "Strict",
                         maxAge: 24 * 60 * 60 * 1000 // 24 heures
                     });
