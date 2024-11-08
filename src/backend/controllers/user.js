@@ -56,7 +56,7 @@ exports.login = (req, res, next) => {
 exports.logout = (req, res) => {
     res.cookie('auth_token', '', {
         httpOnly: true,
-        sameSite: 'Strict',
+        sameSite: 'None',
         expires: new Date(0)
     });
     res.status(200).json({ message: "Déconnecté avec succès" });
