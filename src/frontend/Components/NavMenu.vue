@@ -63,23 +63,55 @@
 <script setup>
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
-import { computed } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { getToken, removeToken } from '@/frontend/js/authentication.js'
 
 const router = useRouter()
+const isAuthenticated = ref(false)
 
-const isAuthenticated = computed(() => !!getToken())
+const checkAuthStatus = async () => {
+  try {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/status`, {
+    //const response = await fetch('http://localhost:3000/api/auth/status', {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
 
-const logout = () => {
-  removeToken()
-  isAuthenticated.value = false
-  if (router.currentRoute.value.name === 'Écrire un article') {
-    router.push({ name: 'Accueil' });
-  } else {
-    router.push({ name: 'Se connecter' });
+    if (response.ok) {
+      const data = await response.json()
+      isAuthenticated.value = data.isAuthenticated
+    } else if (response.status === 401) {
+      isAuthenticated.value = false
+      console.clear()
+    } else {
+      throw new Error('Erreur inattendue')
+    }
+  } catch (error) {
+    if (error.message !== 'Erreur inattendue' && error.message !== 'Non authentifié') {
+      console.error('Erreur lors de la vérification de l\'authentification :', error)
+    }
+    isAuthenticated.value = false
   }
 }
+
+const logout = async () => {
+    try {
+        await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/logout`, {
+        //await fetch('http://localhost:3000/api/auth/logout', { // Local
+            method: 'POST',
+            credentials: 'include',
+        })
+        isAuthenticated.value = false
+        router.push({ name: 'Accueil' })
+    } catch (error) {
+        console.error("Erreur lors de la déconnexion :", error)
+    }
+}
+
+onMounted(checkAuthStatus)
 
 const navigation = [
   { name: 'Accueil' },

@@ -1,56 +1,50 @@
-const API_PATH = '/api'
-const TOKEN_KEY = 'taisezmoi_token'
-
-export function getToken() {
-  const token = window.localStorage.getItem(TOKEN_KEY);
-
-  if (token) {
-    return token
-  }
-
-  return null
-}
-
-export function setToken(token) {
-  window.localStorage.setItem(TOKEN_KEY, token);
-}
-
-export function removeToken() {
-  window.localStorage.removeItem(TOKEN_KEY);
-}
+const API_PATH = '/api';
 
 function initLoginForm(form) {
   form.addEventListener('submit', event => {
-    event.preventDefault()
+    event.preventDefault();
 
-    const { username, password } = event.target.elements
+    const { username, password } = event.target.elements;
 
-    fetch(`${API_PATH}/authentication_token`, {
+    fetch(`${API_PATH}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Accept: 'application/json'
+        'Accept': 'application/json'
       },
       body: JSON.stringify({
-        username: username.value,
+        email: username.value,
         password: password.value
-      })
+      }),
+      credentials: 'include'
     })
       .then(response => {
         if (response.status === 200) {
-          return response.json()
+          window.location.href = '/write';
+        } else {
+          throw new Error('Unauthorized user');
         }
-
-        throw new Error('Unauthorized user')
       })
-      .then(data => {
-        const token = data.token;
-        setToken(token);
-        window.location.href = '/write';
-      })
-  })
+      .catch(error => console.error('Login failed:', error));
+  });
 }
 
-window.getToken = getToken
-window.initLoginForm = initLoginForm
-window.removeToken = removeToken
+export async function checkAuthStatus() {
+  try {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/status`, {
+      //const response = await fetch('http://localhost:3000/api/auth/status', {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await response.json();
+    return data.isAuthenticated;
+  } catch (error) {
+    console.error('Erreur lors de la vérification de l\'authentification :', error);
+    return false;
+  }
+}
+
+window.initLoginForm = initLoginForm;

@@ -11,7 +11,7 @@ exports.createArticle = async (req, res) => {
   }
 
   try {
-    const imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
+    const imageUrl = `https://${req.get('host')}/images/${req.file.filename}`;
     const article = new Article({
       title,
       content,
@@ -66,7 +66,7 @@ exports.updateArticle = async (req, res) => {
         }
       });
 
-      updateData.image = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
+      updateData.image = `https://${req.get('host')}/images/${req.file.filename}`;
     }
 
     const updatedArticle = await Article.findByIdAndUpdate(req.params.id, updateData, { new: true });

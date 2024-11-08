@@ -26,25 +26,56 @@ exports.login = (req, res, next) => {
     User.findOne({ email: req.body.email })
         .then((user) => {
             if (!user) {
-                return res
-                    .status(401)
-                    .json({ error: "Paire login/mot de pass incorrecte !" });
+                return res.status(401).json({ error: "Paire login/mot de passe incorrecte !" });
             }
 
-            bcrypt
-                .compare(req.body.password, user.password)
+            bcrypt.compare(req.body.password, user.password)
                 .then((valid) => {
                     if (!valid) {
                         return res.status(401).json({ error: "Mot de passe incorrect !" });
                     }
-                    res.status(200).json({
-                        userId: user._id,
-                        token: jwt.sign({ userId: user._id }, process.env.AUTH_TOKEN, {
-                            expiresIn: "24h",
-                        }),
+
+                    const token = jwt.sign({ userId: user._id }, process.env.AUTH_TOKEN, { expiresIn: "24h" });
+
+                    res.cookie("auth_token", token, {
+                        httpOnly: true,
+                        // En prod, cette ligne sera active
+                        //secure: process.env.NODE_ENV === "production",
+                        sameSite: "Strict",
+                        maxAge: 24 * 60 * 60 * 1000 // 24 heures
                     });
+
+                    res.status(200).json({ message: "Connexion réussie !" });
                 })
                 .catch((error) => res.status(500).json({ error }));
         })
         .catch((error) => res.status(500).json({ error }));
+};
+
+// LOGOUT
+exports.logout = (req, res) => {
+    res.cookie('auth_token', '', {
+        httpOnly: true,
+        sameSite: 'Strict',
+        expires: new Date(0)
+    });
+    res.status(200).json({ message: "Déconnecté avec succès" });
+};
+
+// VERIFICATION
+exports.checkAuthStatus = (req, res) => {
+    try {
+        const token = req.cookies.auth_token;
+        //console.log("Token reçu :", token); // Affiche le token reçu pour vérifier
+        if (!token) {
+            console.log("Pas de token trouvé dans les cookies");
+            return res.status(401).json({ isAuthenticated: false });
+        }
+
+        const decodedToken = jwt.verify(token, process.env.AUTH_TOKEN);
+        res.status(200).json({ isAuthenticated: true });
+    } catch (error) {
+        console.error("Erreur de vérification du token :", error);
+        res.status(401).json({ isAuthenticated: false, message: "Unauthorized" });
+    }
 };
