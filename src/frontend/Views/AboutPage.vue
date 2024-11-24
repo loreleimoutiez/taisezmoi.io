@@ -39,8 +39,13 @@
 
                         <div class="my-5 text-sm ml-5 text-white">
                             <p>❤️ J'aime bien apprendre des choses</p>
-                            <p>💻 Dev web en alternance chez <span class="text-white font-bold">Akawaka</span></p>
-                            <p>💾 Floppy disks fan account !</p>
+                            <p>💻 Développeuse web (sois plus vague encore stp)</p>
+                            <p>💾 Floppy disks and NES fan account !</p>
+                            <p class="mt-4">✨ Ma dernière ITW dans cette newsletter : <a
+                                    href="https://happytodev.substack.com/p/quoi-de-neuf-les-devs-numero-108"
+                                    target="_blank" rel="noopener noreferrer" class="text-info underline">Interview
+                                    HappyToDev</a>
+                            </p>
                             <p class="mt-4">🗒️ Plus d'infos ici : <a
                                     href="https://avocadogrowth.com/fr/blog/interview/interview-with-lorelei"
                                     target="_blank" rel="noopener noreferrer" class="text-info underline">Interview
@@ -64,6 +69,13 @@
                             <div class="text-gray-400 flex items-center">
                                 <i class="fa-solid fa-calendar-days mr-2"></i>
                                 <p>A créé ce site en décembre 2023</p>
+                            </div>
+                            <div class="text-gray-400 flex items-center mt-4">
+                                <i class="fa-solid fa-person-walking mr-2"></i>
+                                <div class="flex-col">
+                                    <p>Quitte Twitter pour de vrai en décembre 2024</p>
+                                    <p>Retrouvez-moi sur Bsky @ taisezmoi.com</p>
+                                </div>
                             </div>
                             <div class="mt-8">
                                 <p class="text-white font-bold text-base ml-1">Posts</p>
