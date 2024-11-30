@@ -5,7 +5,7 @@
       <div class="mx-auto max-w-7xl md:max-w-full px-6 lg:px-8">
         <div class="mx-auto max-w-2xl lg:text-center">
           <h1 class="text-2xl font-semibold leading-7 text-success">Développeuse web</h1>
-          <p class="mt-2 text-xl font-bold tracking-tight text-gray-900">Mais pas seulement</p>
+          <p class="mt-2 text-xl font-bold tracking-tight text-gray-900">Vue.js || React && TailwindCSS && Node.js(Express) || Python(Flask)</p>
           <p class="mt-6 text-lg leading-8 text-gray-600">Je vous propose de découvrir ce qui m'anime (mis à part le
             café) et qui me donne envie de me lever le matin (mis à part mon chat qui miaule).</p>
         </div>
@@ -75,25 +75,25 @@ const features = [
   {
     name: 'L\'histoire de l\'informatique',
     description:
-      'Je dis informatique, pour parler globalement, mais ça m\'intéresse de voir / savoir comment les choses étaient faites avant. Comment on a pu se lever un jour et se dire "ce matériau va stocker de la mémoire" (alors oui, je sais que ça ne s\'est pas fait en un matin).',
+      'Je m’intéresse à l’histoire de l’informatique, notamment aux choix et aux innovations qui ont marqué le développement des technologies actuelles. Pour moi, comprendre le passé aide à mieux envisager l’avenir, que ce soit dans le code, dans l’architecture logicielle ou dans la vie.',
     icon: SparklesIcon,
   },
   {
     name: 'Apprendre',
     description:
-      'C\'est lié au premier point et probablement à tous les autres, mais apprendre ça a toujours été quelque chose qui me porte et fait que je m\'épanouis. Évidemment, ça ne concerne pas que le monde de l\'informatique.',
+      'L’apprentissage continu est une de mes priorités : j’aime approfondir mes compétences techniques, explorer de nouvelles technologies, et comprendre des concepts complexes pour les appliquer efficacement dans mes projets.',
     icon: ArrowDownOnSquareIcon,
   },
   {
     name: 'Partager',
     description:
-      'Mon pseudo n\'est pas taisezmoi pour rien ! Un matin j\'me suis levée et je me suis dit "tiens, à partir de maintenant je vais raconter toute ma vie sur internet". Et au fil des années, évidemment ça a évolué et aujourd\'hui je parle de disquettes 5.25" sur Twitter.',
+      'Partager mes connaissances (à mon humble niveau) et mes expériences fait partie intégrante de ma démarche. Que ce soit à travers des talks, des projets ou des discussions avec d’autres devs, je crois en l’importance de la collaboration et de la communication pour progresser.',
     icon: ShareIcon,
   },
   {
-    name: 'Devenir une développeuse* confirmée',
+    name: 'Devenir une développeuse confirmée',
     description:
-      'Mine de rien c\'est juste mon objectif principal et ce qui fera que j\'aurais tout le loisir d\'apprendre encore et encore au travail tout comme sur mon temps de repos. Et puis je vous le dis à vous, on est entre nous, mais je ne me vois plus jamais faire autre chose de ma vie maintenant (* même si je m\'intéresse aussi au data engineering).',
+      'Mon objectif est de renforcer mes compétences pour m’épanouir pleinement en tant que développeuse web. Je privilégie les projets qui suscitent ma curiosité ou ma créativité, tout en misant sur le travail en équipe et une progression constante, aussi bien technique que personnelle.',
     icon: CommandLineIcon,
   },
 ]
