@@ -10,11 +10,9 @@ require('dotenv').config();
 
 const userRoutes = require('./routes/user');
 const articleRoutes = require('./routes/article');
+const cardRoutes = require('./routes/card');
 
-mongoose.connect(process.env.MONGODB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose.connect(process.env.MONGODB)
     .then(() => console.log('Connexion à MongoDB réussie !'))
     .catch(() => console.log('Connexion à MongoDB échouée !'));
 
@@ -34,6 +32,7 @@ app.use(cors({
 
 app.use('/api/auth', userRoutes);
 app.use('/api/articles', articleRoutes);
+app.use('/api/cards', cardRoutes);
 
 app.use((err, req, res, next) => {
     console.error(err);

@@ -32,7 +32,7 @@ const router = createRouter({
   routes
 })
 
-const authRequiredRoutes = ['Écrire un article', 'Modifier un article', 'Projets'];
+const authRequiredRoutes = ['Écrire un article', 'Modifier un article'];
 
 router.beforeEach(async (to, from, next) => {
   if (authRequiredRoutes.includes(to.name)) {
