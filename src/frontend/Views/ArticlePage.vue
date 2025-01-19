@@ -22,6 +22,12 @@
         <h1 class="w-full text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight text-gray-900 text-left mb-6">
           {{ post.title }}
         </h1>
+        <div class="text-sm text-gray-500 mb-3">
+          <p><strong>Publié le :</strong> {{ new Date(post.createdAt).toLocaleDateString('fr-FR') }}</p>
+          <p v-if="post.updatedAt && post.updatedAt !== post.createdAt">
+            <strong>Modifié le :</strong> {{ new Date(post.updatedAt).toLocaleDateString('fr-FR') }}
+          </p>
+        </div>
 
         <div class="mb-4 border-t-4 border-t-gray-800 pt-4"></div>
         <Breadcrumb />
