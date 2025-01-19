@@ -62,6 +62,7 @@ import Breadcrumb from '../Components/BreadCrumb.vue'
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { checkAuthStatus } from '@/frontend/js/authentication.js'
+import { useHead } from '@vueuse/head'
 
 const route = useRoute()
 const router = useRouter()
@@ -77,12 +78,27 @@ const fetchPost = async () => {
   try {
     const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/articles/${route.params.id}`);
     if (!response.ok) {
-      throw new Error('Erreur lors de la récupération de l\'article');
+      throw new Error("Erreur lors de la récupération de l'article");
     }
-    const data = await response.json();
-    post.value = data;
+    const data = await response.json()
+    post.value = data
+
+    useHead({
+      title: post.value.title,
+      meta: [
+        { property: 'og:title', content: post.value.title },
+        { property: 'og:description', content: post.value.excerpt || post.value.content.slice(0, 150) },
+        { property: 'og:image', content: post.value.image || 'https://www.taisezmoi.com/assets/dino-XqyuFW9r.webp' },
+        { property: 'og:url', content: `${import.meta.env.VITE_FRONTEND_URL}/#/article/${post.value._id}` },
+        { property: 'og:type', content: 'article' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: post.value.title },
+        { name: 'twitter:description', content: post.value.excerpt || post.value.content.slice(0, 150) },
+        { name: 'twitter:image', content: post.value.image || 'https://www.taisezmoi.com/assets/dino-XqyuFW9r.webp' },
+      ],
+    })
   } catch (error) {
-    console.error('Erreur :', error);
+    console.error('Erreur :', error)
   }
 }
 
