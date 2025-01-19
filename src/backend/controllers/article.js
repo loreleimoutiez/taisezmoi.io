@@ -17,10 +17,14 @@ exports.createArticle = async (req, res) => {
       content,
       image: imageUrl,
       alt,
-      category
+      category,
+      createdAt: new Date(),
+      updatedAt: new Date()
     });
+
     await article.save();
     res.status(201).json(article);
+
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -57,6 +61,12 @@ exports.updateArticle = async (req, res) => {
       return res.status(404).json({ error: 'Article not found' });
     }
 
+    const isModified = title !== article.title || content !== article.content || alt !== article.alt || category !== article.category;
+
+    if (isModified) {
+      updateData.updatedAt = new Date();
+    }
+
     if (req.file) {
       const oldImagePath = path.join('/var/data/images', path.basename(article.image));
 
@@ -67,6 +77,10 @@ exports.updateArticle = async (req, res) => {
       });
 
       updateData.image = `https://${req.get('host')}/images/${req.file.filename}`;
+    }
+
+    if (req.body.createdAt) {
+      updateData.createdAt = new Date(req.body.createdAt);
     }
 
     const updatedArticle = await Article.findByIdAndUpdate(req.params.id, updateData, { new: true });
