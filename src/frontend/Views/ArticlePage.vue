@@ -37,7 +37,7 @@
           v-if="post.image"
           :src="post.image"
           :alt="post.alt || `Image de l'article : ${post.title}`"
-          class="w-full h-72 md:h-[30rem] object-cover rounded-lg mb-6"
+          class="w-full h-60 md:h-[30rem] object-cover rounded-lg mb-6"
         />
 
         <!-- Section pour le contenu de l'article -->
