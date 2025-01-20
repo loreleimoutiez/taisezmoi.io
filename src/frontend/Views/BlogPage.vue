@@ -42,7 +42,7 @@
                   v-if="filteredPosts[0].image"
                   :src="filteredPosts[0].image"
                   :alt="filteredPosts[0].alt || `Image de l'article : ${filteredPosts[0].title}`"
-                  class="w-full h-[30rem] object-cover rounded-lg"
+                  class="w-full md:h-[30rem] object-cover rounded-lg"
                 />
                 <!-- Pastille de catégorie en bas à droite -->
                 <span class="absolute bottom-4 right-4 bg-fuchsia text-white text-xs font-semibold px-3 py-1 rounded-full">
