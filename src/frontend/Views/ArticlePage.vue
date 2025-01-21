@@ -1,7 +1,8 @@
 <template>
   <LayoutComp>
+    <LatestNews />
     <div class="bg-white py-10">
-      <div v-if="post" class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div v-if="post" class="mx-auto max-w-5xl px-6 lg:px-8">
         <!-- Options de modification et suppression visibles uniquement si l'utilisateur est connecté -->
         <div v-if="isAuthenticated" class="flex gap-2 mb-4">
           <button
@@ -18,19 +19,21 @@
           </button>
         </div>
 
+        <Breadcrumb />
+
         <!-- Titre principal de l'article avec bordure similaire à la page blog -->
-        <h1 class="w-full text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight text-gray-900 text-left mb-6">
+        <h1 class="w-full text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 text-left mb-6">
           {{ post.title }}
         </h1>
-        <div class="text-sm text-gray-500 mb-3">
+
+        <div class="mb-2 border-t-4 border-t-gray-800 pt-4"></div>
+
+        <div class="text-sm text-gray-500 mb-6">
           <p><strong>Publié le :</strong> {{ new Date(post.createdAt).toLocaleDateString('fr-FR') }}</p>
           <p v-if="post.updatedAt && post.updatedAt !== post.createdAt">
             <strong>Modifié le :</strong> {{ new Date(post.updatedAt).toLocaleDateString('fr-FR') }}
           </p>
         </div>
-
-        <div class="mb-4 border-t-4 border-t-gray-800 pt-4"></div>
-        <Breadcrumb />
 
         <!-- Image de l'article -->
         <img
@@ -42,7 +45,7 @@
 
         <!-- Section pour le contenu de l'article -->
         <div class="mx-auto bg-white article-content ql-editor">
-          <div v-if="post.content" v-html="post.content" class="formatted-content text-lg md:text-xl text-black leading-relaxed"></div>
+          <div v-if="post.content" v-html="post.content" class="formatted-content text-base text-black leading-relaxed"></div>
         </div>
       </div>
       <div v-else>
@@ -58,6 +61,7 @@
 
 <script setup>
 import LayoutComp from '../Components/LayoutComp.vue'
+import LatestNews from '@/frontend/Components/LatestNews.vue'
 import Breadcrumb from '../Components/BreadCrumb.vue'
 import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
