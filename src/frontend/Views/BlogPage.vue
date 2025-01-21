@@ -10,7 +10,7 @@
         </h1>
         
         <!-- Barre de catégories et de recherche -->
-        <nav class="flex flex-col md:flex-row md:justify-between items-center border-b-2 border-black pb-4 mb-8 border-t-4 border-t-gray-800 pt-4 space-y-4 md:space-y-0">
+        <nav class="flex flex-col md:flex-row md:justify-between items-center border-b-2 border-black pb-4 mb-8 border-t-4 border-t-gray-800 pt-4 space-y-4">
           <div class="flex space-x-4 md:space-x-6 overflow-x-auto scrollbar-hide md:overflow-visible md:flex-wrap w-full">
             <span 
               v-for="cat in defaultCategories" 
@@ -33,7 +33,7 @@
           </div>
         </nav>
 
-        <div class="mt-6 mb-12 md:mt-16 lg:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="mt-14 mb-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
           <!-- Dernier article en grand format carré à gauche -->
           <div v-if="filteredPosts.length" class="w-full relative">
             <router-link :to="`/article/${filteredPosts[0]._id}`" class="block group">
@@ -42,7 +42,7 @@
                   v-if="filteredPosts[0].image"
                   :src="filteredPosts[0].image"
                   :alt="filteredPosts[0].alt || `Image de l'article : ${filteredPosts[0].title}`"
-                  class="w-full md:h-[30rem] object-cover rounded-lg"
+                  class="w-full md:h-[30rem] object-cover rounded-lg border-4 border-fuchsia"
                 />
                 <!-- Pastille de catégorie en bas à droite -->
                 <span class="absolute bottom-4 right-4 bg-fuchsia text-white text-xs font-semibold px-3 py-1 rounded-full">
