@@ -49,15 +49,15 @@
                   {{ filteredPosts[0].category }}
                 </span>
               </div>
-              <h3 class="mt-4 text-2xl font-semibold text-gray-900 group-hover:text-gray-600">
-                {{ filteredPosts[0].title }}
-              </h3>
-              <div class="text-sm text-gray-500">
+              <div class="text-sm text-gray-500 mt-5">
                 <p><strong>Publié le :</strong> {{ new Date(filteredPosts[0].createdAt).toLocaleDateString('fr-FR') }}</p>
                 <p v-if="filteredPosts[0].updatedAt && filteredPosts[0].updatedAt !== filteredPosts[0].createdAt">
                   <strong>Modifié le :</strong> {{ new Date(filteredPosts[0].updatedAt).toLocaleDateString('fr-FR') }}
                 </p>
               </div>
+              <h3 class="mt-4 text-2xl font-semibold text-gray-900 group-hover:text-gray-600">
+                {{ filteredPosts[0].title }}
+              </h3>
             </router-link>
           </div>
 
