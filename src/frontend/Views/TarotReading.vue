@@ -29,20 +29,20 @@
   </template>
   
   <script setup>
-  import { ref } from 'vue';
-  import NavMenu from '@/frontend/Components/NavMenu.vue';
+  import { ref } from 'vue'
+  import NavMenu from '@/frontend/Components/NavMenu.vue'
   
-  const card = ref(null);
+  const card = ref(null)
   
   const getRandomCard = async () => {
     try {
-      const response = await fetch('https://taisezmoi.onrender.com/api/cards/random');
-      const data = await response.json();
-      card.value = data;
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/cards/random`)
+        const data = await response.json()
+        card.value = data
     } catch (error) {
-      console.error('Error fetching random card:', error);
+        console.error('Error fetching random card:', error)
     }
-  };
+    }
   </script>
   
   <style>
